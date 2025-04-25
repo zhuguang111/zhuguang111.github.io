@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>反射 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="什么是反射想象一下，你有一个神秘的黑盒子，这个黑盒子里有各种机关和按钮，但你一开始并不知道里面具体是什么样的构造。反射就像是给你了一个特殊的工具，让你在不打开黑盒子的情况下，能探测到里面有多少个机关、按钮，还能知道这些机关和按钮是怎么用的，甚至可以直接去操作它们。 在编程里，反射就是程序在运行的时候可以自我分析和操作的一种能力。正常情况下，我们写代码是预先知道类、方法、属性这些东西的，但反射允许程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="反射">
+<meta property="og:url" content="http://example.com/2025/04/23/%E5%8F%8D%E5%B0%84/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="什么是反射想象一下，你有一个神秘的黑盒子，这个黑盒子里有各种机关和按钮，但你一开始并不知道里面具体是什么样的构造。反射就像是给你了一个特殊的工具，让你在不打开黑盒子的情况下，能探测到里面有多少个机关、按钮，还能知道这些机关和按钮是怎么用的，甚至可以直接去操作它们。 在编程里，反射就是程序在运行的时候可以自我分析和操作的一种能力。正常情况下，我们写代码是预先知道类、方法、属性这些东西的，但反射允许程">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-23T12:48:58.000Z">
+<meta property="article:modified_time" content="2025-04-23T12:58:48.036Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-反射" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/23/%E5%8F%8D%E5%B0%84/" class="article-date">
+  <time class="dt-published" datetime="2025-04-23T12:48:58.000Z" itemprop="datePublished">2025-04-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      反射
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是反射"><a href="#什么是反射" class="headerlink" title="什么是反射"></a>什么是反射</h3><p>想象一下，你有一个神秘的黑盒子，这个黑盒子里有各种机关和按钮，但你一开始并不知道里面具体是什么样的构造。反射就像是给你了一个特殊的工具，让你在不打开黑盒子的情况下，能探测到里面有多少个机关、按钮，还能知道这些机关和按钮是怎么用的，甚至可以直接去操作它们。</p>
+<p>在编程里，反射就是程序在运行的时候可以自我分析和操作的一种能力。正常情况下，我们写代码是预先知道类、方法、属性这些东西的，但反射允许程序在运行时动态地获取这些信息，还能动态地调用方法、访问属性等。</p>
+<h3 id="什么是反射类"><a href="#什么是反射类" class="headerlink" title="什么是反射类"></a>什么是反射类</h3><p>反射类是实现反射机制的重要工具。还是拿上面的黑盒子举例，反射类就像是那个特殊工具的说明书，它能帮助你更好地去探测和操作黑盒子里的东西。在不同的编程语言里，反射类提供了一系列的方法和属性，让你可以获取类的信息，比如类有哪些属性、方法，这些属性和方法的访问权限是什么，还能创建对象、调用方法、修改属性值等。</p>
+<p>PHP的反射功能主要是由以下几个类去实现的：</p>
+<ul>
+<li><p>ReflectionClass：获取类的相关信息，函数、属性、常量等；</p>
+</li>
+<li><p>ReflectionMethod：类的相关方法的获取以及调用；</p>
+</li>
+<li><p>ReflectionParameter：获取类的函数或者方法参数的相关信息；</p>
+</li>
+<li><p>ReflectionProperty：类的相关属性</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取反射类</span></span><br><span class="line"><span class="variable">$reflection</span> = <span class="keyword">new</span> <span class="title class_">ReflectionClass</span>(<span class="string">&#x27;phone&#x27;</span>);</span><br><span class="line"><span class="comment">//获取其默认属性</span></span><br><span class="line"><span class="variable">$properties</span> = <span class="variable">$reflection</span>-&gt;<span class="title function_ invoke__">getDefaultProperties</span>();</span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$properties</span>);</span><br><span class="line"><span class="comment">//打印结果</span></span><br><span class="line"><span class="keyword">array</span>(<span class="number">2</span>) &#123;</span><br><span class="line">  <span class="string">&#x27;color&#x27;</span> =&gt;</span><br><span class="line">  <span class="keyword">string</span>(<span class="number">3</span>) <span class="string">&quot;red&quot;</span></span><br><span class="line">  <span class="string">&#x27;model&#x27;</span> =&gt;</span><br><span class="line">  <span class="keyword">string</span>(<span class="number">4</span>) <span class="string">&quot;vivo&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取它的所有方法</span></span><br><span class="line"><span class="variable">$methods</span> = <span class="variable">$reflection</span>-&gt;<span class="title function_ invoke__">getMethods</span>();</span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$methods</span>);</span><br><span class="line"><span class="comment">//打印结果</span></span><br><span class="line"><span class="keyword">array</span>(<span class="number">2</span>) &#123;</span><br><span class="line">  <span class="string">&#x27;color&#x27;</span> =&gt;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$name</span> =&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">8</span>) <span class="string">&quot;setColor&quot;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$class</span> =&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">5</span>) <span class="string">&quot;phone&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">  [<span class="number">1</span>] =&gt;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">ReflectionMethod</span>#3 (2) </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$name</span> =&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">8</span>) <span class="string">&quot;setModel&quot;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$class</span> =&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">5</span>) <span class="string">&quot;phone&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="1、ReflectionClass使用示例"><a href="#1、ReflectionClass使用示例" class="headerlink" title="1、ReflectionClass使用示例"></a>1、ReflectionClass使用示例</h5></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">//获取反射类</span><br><span class="line">$reflection = new ReflectionClass(&#x27;phone&#x27;);</span><br><span class="line">//获取其默认属性</span><br><span class="line">$properties = $reflection-&gt;getDefaultProperties();</span><br><span class="line">var_dump($properties);</span><br><span class="line">//打印结果</span><br><span class="line">array(2) &#123;</span><br><span class="line">  &#x27;color&#x27; =&gt;</span><br><span class="line">  string(3) &quot;red&quot;</span><br><span class="line">  &#x27;model&#x27; =&gt;</span><br><span class="line">  string(4) &quot;vivo&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//获取它的所有方法</span><br><span class="line">$methods = $reflection-&gt;getMethods();</span><br><span class="line">var_dump($methods);</span><br><span class="line">//打印结果</span><br><span class="line">array(2) &#123;</span><br><span class="line">  &#x27;color&#x27; =&gt;</span><br><span class="line">    public $name =&gt;</span><br><span class="line">    string(8) &quot;setColor&quot;</span><br><span class="line">    public $class =&gt;</span><br><span class="line">    string(5) &quot;phone&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  [1] =&gt;</span><br><span class="line">  class ReflectionMethod#3 (2) &#123;</span><br><span class="line">    public $name =&gt;</span><br><span class="line">    string(8) &quot;setModel&quot;</span><br><span class="line">    public $class =&gt;</span><br><span class="line">    string(5) &quot;phone&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、ReflectionMethod使用示例"><a href="#2、ReflectionMethod使用示例" class="headerlink" title="2、ReflectionMethod使用示例"></a>2、ReflectionMethod使用示例</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//获取反射的方法</span><br><span class="line">$method = new ReflectionMethod(&#x27;phone&#x27;,&#x27;setColor&#x27;);</span><br><span class="line">//执行方法</span><br><span class="line">$res = $method-&gt;invokeArgs(new phone(), [&#x27;blue&#x27;]);</span><br><span class="line">var_dump($res);</span><br><span class="line">//打印结果</span><br><span class="line">string(4) &quot;blue&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、ReflectionParameter使用示例"><a href="#3、ReflectionParameter使用示例" class="headerlink" title="3、ReflectionParameter使用示例"></a>3、ReflectionParameter使用示例</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//获取反射方法</span><br><span class="line">$method = new ReflectionMethod(&#x27;phone&#x27;, &#x27;setColor&#x27;);</span><br><span class="line">//获取该方法的参数</span><br><span class="line">$parameters = $method-&gt;getParameters();</span><br><span class="line">var_dump($parameters);</span><br><span class="line">//打印结果</span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0] =&gt;</span><br><span class="line">  class ReflectionParameter#2 (1) &#123;</span><br><span class="line">    public $name =&gt;</span><br><span class="line">    string(5) &quot;color&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、ReflectionProperty使用示例"><a href="#4、ReflectionProperty使用示例" class="headerlink" title="4、ReflectionProperty使用示例"></a>4、ReflectionProperty使用示例</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//反射类</span><br><span class="line">$reflection = new ReflectionClass(&#x27;phone&#x27;);</span><br><span class="line">//获取属性</span><br><span class="line">$properties = $reflection-&gt;getDefaultProperties();</span><br><span class="line">var_dump($properties);</span><br><span class="line">//打印结果</span><br><span class="line">array(2) &#123;</span><br><span class="line">  &#x27;color&#x27; =&gt;</span><br><span class="line">  string(3) &quot;red&quot;</span><br><span class="line">  &#x27;model&#x27; =&gt;</span><br><span class="line">  string(4) &quot;vivo&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/04/23/%E5%8F%8D%E5%B0%84/" data-id="cm9wrpana000038uoe6iu0pw2" data-title="反射" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/04/25/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E4%BC%AA%E5%8D%8F%E8%AE%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          文件包含伪协议
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/04/23/md5%E5%BC%BA%E5%BC%B1%E7%A2%B0%E6%92%9E%E5%8F%8A%E7%BB%95%E8%BF%87/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">md5强弱碰撞及绕过</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/04/25/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">文件上传</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/25/%E6%97%A0%E6%95%B0%E5%AD%97%E5%AD%97%E6%AF%8Drce/">无数字字母rce</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/25/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E4%BC%AA%E5%8D%8F%E8%AE%AE/">文件包含伪协议</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/23/%E5%8F%8D%E5%B0%84/">反射</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/23/md5%E5%BC%BA%E5%BC%B1%E7%A2%B0%E6%92%9E%E5%8F%8A%E7%BB%95%E8%BF%87/">md5强弱碰撞及绕过</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

