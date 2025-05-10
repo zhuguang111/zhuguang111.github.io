@@ -4,28 +4,28 @@
   <meta charset="utf-8">
   
   
-  <title>requests库的学习 | Traveler2000🪐</title>
+  <title>requests库的学习 | zhuguang111</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="request库通俗理解# 1.request库的作用requests库就像是一个能干的 “跑腿助手”。在现实生活中，如果你要去商店拿东西，可能会亲自走过去，但在网络世界里，有很多复杂的步骤和规则，而requests库就帮你处理这些复杂的事情，让你可以轻松地从网络上获取信息。 *2. GET 请求的含义*GET 请求就相当于你跟商店店员说 “我想要某个东西”。在网络里，这个 “东西” 就是网页、图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="requests库的学习">
-<meta property="og:url" content="http://traveler2000.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">
-<meta property="og:site_name" content="Traveler2000🪐">
+<meta property="og:url" content="http://zhuguang111.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="zhuguang111">
 <meta property="og:description" content="request库通俗理解# 1.request库的作用requests库就像是一个能干的 “跑腿助手”。在现实生活中，如果你要去商店拿东西，可能会亲自走过去，但在网络世界里，有很多复杂的步骤和规则，而requests库就帮你处理这些复杂的事情，让你可以轻松地从网络上获取信息。 *2. GET 请求的含义*GET 请求就相当于你跟商店店员说 “我想要某个东西”。在网络里，这个 “东西” 就是网页、图">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://traveler2000.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/image-20250421210254912.png">
-<meta property="og:image" content="http://traveler2000.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/image-20250421210326218.png">
-<meta property="og:image" content="http://traveler2000.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/image-20250421212624763.png">
-<meta property="og:image" content="http://traveler2000.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/image-20250421213113557.png">
-<meta property="og:image" content="http://traveler2000.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/image-20250421213126517.png">
-<meta property="og:image" content="http://traveler2000.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/image-20250421214027917.png">
+<meta property="og:image" content="http://zhuguang111.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/image-20250421210254912.png">
+<meta property="og:image" content="http://zhuguang111.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/image-20250421210326218.png">
+<meta property="og:image" content="http://zhuguang111.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/image-20250421212624763.png">
+<meta property="og:image" content="http://zhuguang111.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/image-20250421213113557.png">
+<meta property="og:image" content="http://zhuguang111.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/image-20250421213126517.png">
+<meta property="og:image" content="http://zhuguang111.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/image-20250421214027917.png">
 <meta property="article:published_time" content="2025-04-21T12:13:41.000Z">
 <meta property="article:modified_time" content="2025-04-21T13:44:31.424Z">
-<meta property="article:author" content="Traveler2000">
+<meta property="article:author" content="zhuguang111">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://traveler2000.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/image-20250421210254912.png">
+<meta name="twitter:image" content="http://zhuguang111.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/image-20250421210254912.png">
   
-    <link rel="alternate" href="/atom.xml" title="Traveler2000🪐" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="zhuguang111" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -52,7 +52,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Traveler2000🪐</a>
+        <a href="/" id="logo">zhuguang111</a>
       </h1>
       
     </div>
@@ -73,7 +73,7 @@
         <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://traveler2000.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://zhuguang111.github.io"></form>
       </div>
     </div>
   </div>
@@ -245,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://traveler2000.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/" data-id="cm9z667v1000enouo049z0md2" data-title="requests库的学习" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://zhuguang111.github.io/2025/04/21/requests%E5%BA%93%E7%9A%84%E5%AD%A6%E4%B9%A0/" data-id="cm9z667v1000enouo049z0md2" data-title="requests库的学习" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -337,7 +337,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2025 Traveler2000<br>
+      &copy; 2025 zhuguang111<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
