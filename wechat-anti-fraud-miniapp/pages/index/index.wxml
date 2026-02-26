@@ -1,6 +1,6 @@
 <view class="container">
   <view class="header">
-    <image class="logo" src="/images/logo.png" mode="aspectFit"></image>
+    <view class="logo-placeholder">🛡️</view>
     <text class="title">防诈骗线索举报</text>
   </view>
 

@@ -10,9 +10,15 @@
   margin-bottom: 80rpx;
 }
 
-.logo {
+.logo-placeholder {
   width: 200rpx;
   height: 200rpx;
+  font-size: 120rpx;
+  line-height: 200rpx;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  margin: 0 auto;
 }
 
 .title {
