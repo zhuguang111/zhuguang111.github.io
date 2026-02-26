@@ -1,13 +1,14 @@
 .container {
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 20rpx;
 }
 
 .form-section {
   background: #ffffff;
-  border-radius: 20rpx;
-  padding: 40rpx 30rpx;
+  border-radius: 30rpx;
+  padding: 50rpx 40rpx;
+  box-shadow: 0 10rpx 40rpx rgba(0, 0, 0, 0.1);
 }
 
 .form-item {
@@ -16,7 +17,7 @@
 
 .label {
   display: block;
-  font-size: 30rpx;
+  font-size: 32rpx;
   font-weight: bold;
   color: #333333;
   margin-bottom: 20rpx;
@@ -24,20 +25,27 @@
 
 .input {
   width: 100%;
-  height: 80rpx;
-  background: #f7f7f7;
-  border-radius: 10rpx;
-  padding: 0 20rpx;
+  height: 90rpx;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 20rpx;
+  padding: 0 25rpx;
   font-size: 28rpx;
   color: #333333;
+  border: 2rpx solid transparent;
+  transition: all 0.3s;
+}
+
+.input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 20rpx rgba(102, 126, 234, 0.3);
 }
 
 .picker {
   width: 100%;
-  height: 80rpx;
-  background: #f7f7f7;
-  border-radius: 10rpx;
-  padding: 0 20rpx;
+  height: 90rpx;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 20rpx;
+  padding: 0 25rpx;
   font-size: 28rpx;
   color: #333333;
   display: flex;
@@ -46,13 +54,20 @@
 
 .textarea {
   width: 100%;
-  min-height: 200rpx;
-  background: #f7f7f7;
-  border-radius: 10rpx;
-  padding: 20rpx;
+  min-height: 220rpx;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 20rpx;
+  padding: 25rpx;
   font-size: 28rpx;
   color: #333333;
   box-sizing: border-box;
+  border: 2rpx solid transparent;
+  transition: all 0.3s;
+}
+
+.textarea:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 20rpx rgba(102, 126, 234, 0.3);
 }
 
 .char-count {
@@ -72,13 +87,18 @@
 .upload-btn {
   width: 160rpx;
   height: 160rpx;
-  background: #f7f7f7;
-  border-radius: 10rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2rpx dashed #d9d9d9;
+  border: 2rpx dashed rgba(255, 255, 255, 0.8);
+  transition: all 0.3s;
+}
+
+.upload-btn:active {
+  transform: scale(0.95);
 }
 
 .upload-icon {
@@ -89,7 +109,7 @@
 
 .upload-text {
   font-size: 24rpx;
-  color: #999999;
+  color: #ffffff;
 }
 
 .image-item,
@@ -98,8 +118,9 @@
   position: relative;
   width: 160rpx;
   height: 160rpx;
-  border-radius: 10rpx;
+  border-radius: 20rpx;
   overflow: hidden;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.1);
 }
 
 .image {
@@ -113,7 +134,7 @@
 }
 
 .file-item {
-  background: #f7f7f7;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -141,31 +162,43 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 40rpx;
-  height: 40rpx;
-  background: rgba(0, 0, 0, 0.6);
+  width: 45rpx;
+  height: 45rpx;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
   color: #ffffff;
   font-size: 32rpx;
-  line-height: 40rpx;
+  line-height: 45rpx;
   text-align: center;
   border-radius: 50%;
   z-index: 1;
+  box-shadow: 0 2rpx 10rpx rgba(238, 90, 36, 0.3);
 }
 
 .upload-tip {
   display: block;
   font-size: 24rpx;
-  color: #999999;
+  color: #666666;
   margin-top: 20rpx;
+  background: #fff7e6;
+  padding: 20rpx;
+  border-radius: 15rpx;
+  border-left: 5rpx solid #faad14;
 }
 
 .submit-btn {
   width: 100%;
-  height: 90rpx;
-  background: #1890ff;
+  height: 100rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #ffffff;
-  border-radius: 45rpx;
-  font-size: 32rpx;
+  border-radius: 50rpx;
+  font-size: 36rpx;
   font-weight: bold;
-  margin-top: 40rpx;
+  margin-top: 50rpx;
+  box-shadow: 0 10rpx 30rpx rgba(102, 126, 234, 0.4);
+  transition: all 0.3s;
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 5rpx 15rpx rgba(102, 126, 234, 0.3);
 }

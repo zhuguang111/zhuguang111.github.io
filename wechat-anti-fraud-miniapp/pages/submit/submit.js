@@ -69,15 +69,15 @@ Page({
 
   chooseImage() {
     const currentCount = this.data.formData.attachments.length;
-    if (currentCount >= 3) {
+    if (currentCount >= 8) {
       wx.showToast({
-        title: '最多上传3张图片',
+        title: '最多上传8张图片',
         icon: 'none'
       });
       return;
     }
     wx.chooseImage({
-      count: 3 - currentCount,
+      count: 8 - currentCount,
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
       success: (res) => {

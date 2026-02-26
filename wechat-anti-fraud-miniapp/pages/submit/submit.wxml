@@ -37,7 +37,7 @@
     <view class="form-item">
       <text class="label">上传证据</text>
       <view class="upload-section">
-        <view wx:if="{{formData.attachments.length < 3}}" class="upload-btn" bindtap="chooseImage">
+        <view wx:if="{{formData.attachments.length < 8}}" class="upload-btn" bindtap="chooseImage">
           <text class="upload-icon">📷</text>
           <text class="upload-text">上传图片</text>
         </view>
@@ -63,7 +63,7 @@
           <text class="remove-btn" bindtap="removeAttachment" data-type="file" data-index="{{index}}">×</text>
         </view>
       </view>
-      <text class="upload-tip">提示: 图片最多3张,视频最多1个,文件最多2个</text>
+      <text class="upload-tip">提示: 图片最多8张,视频最多1个,文件最多2个</text>
     </view>
 
     <button class="submit-btn" bindtap="submitForm">提交举报</button>

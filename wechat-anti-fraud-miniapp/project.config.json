@@ -20,7 +20,9 @@
     "useCompilerPlugins": [
       "typescript"
     ],
-    "condition": false
+    "condition": false,
+    "ignoreUploadUnusedFiles": true,
+    "ignoreDevUnusedFiles": true
   },
   "condition": {
     "miniprogram": {
