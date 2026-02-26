@@ -67,8 +67,16 @@ Page({
   },
 
   onPullDownRefresh() {
-    this.loadRecords().then(() => {
+    this.loadReports().then(() => {
       wx.stopPullDownRefresh();
     });
+  },
+
+  navigateToAdmin() {
+    wx.navigateTo({
+      url: '/pages/admin/admin'
+    });
+  }
+});
   }
 });

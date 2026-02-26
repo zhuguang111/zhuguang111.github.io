@@ -51,11 +51,18 @@
             <text class="label">时间:</text>
             <text class="value">{{item.time}}</text>
           </view>
-          <view class="info-row">
-            <text class="label">描述:</text>
-            <text class="value">{{item.content}}</text>
+        <view class="info-row">
+          <text class="label">描述:</text>
+          <text class="value">{{item.content}}</text>
+        </view>
+        <view wx:if="{{item.attachments && item.attachments.length > 0}}" class="info-row">
+          <text class="label">附件:</text>
+          <view class="attachment-preview" bindtap="viewAttachments" data-attachments="{{item.attachments}}">
+            <text class="attachment-count">{{item.attachments.length}}个附件</text>
+            <text class="attachment-hint">点击查看</text>
           </view>
         </view>
+      </view>
 
         <view class="report-footer">
           <text class="time">{{item.submitTime}}</text>

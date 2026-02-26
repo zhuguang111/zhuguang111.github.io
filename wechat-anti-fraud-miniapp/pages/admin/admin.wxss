@@ -173,6 +173,26 @@
   flex: 1;
 }
 
+.attachment-preview {
+  background: #f7f7f7;
+  padding: 16rpx;
+  border-radius: 8rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.attachment-count {
+  font-size: 26rpx;
+  color: #1890ff;
+  font-weight: bold;
+}
+
+.attachment-hint {
+  font-size: 22rpx;
+  color: #999999;
+}
+
 .report-footer {
   border-top: 1rpx solid #f0f0f0;
   padding-top: 20rpx;

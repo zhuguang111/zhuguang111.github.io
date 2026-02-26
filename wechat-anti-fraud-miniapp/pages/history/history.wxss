@@ -5,6 +5,18 @@
 }
 
 .admin-entry {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 25rpx;
+  border-radius: 15rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  box-shadow: 0 4rpx 15rpx rgba(102, 126, 234, 0.3);
+}
+
+.admin-entry {
   background: #1890ff;
   color: #ffffff;
   text-align: center;

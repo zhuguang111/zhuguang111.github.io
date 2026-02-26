@@ -179,6 +179,16 @@ Page({
     });
   },
 
+  viewAttachments(e) {
+    const { attachments } = e.currentTarget.dataset;
+    if (attachments && attachments.length > 0) {
+      wx.previewImage({
+        current: attachments[0],
+        urls: attachments
+      });
+    }
+  },
+
   logout() {
     wx.showModal({
       title: '退出登录',

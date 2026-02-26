@@ -1,4 +1,8 @@
 <view class="container">
+  <view class="admin-entry" bindtap="navigateToAdmin">
+    <text>管理员入口</text>
+  </view>
+
   <view wx:if="{{loading}}" class="loading">
     <text>加载中...</text>
   </view>
