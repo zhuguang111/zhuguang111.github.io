@@ -6,6 +6,22 @@
   "cloudbaseRoot": "./",
   "libVersion": "2.19.4",
   "compileType": "miniprogram",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useCompilerPlugins": [
+      "typescript"
+    ],
+    "condition": false
+  },
   "condition": {
     "miniprogram": {
       "list": [

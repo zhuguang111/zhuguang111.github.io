@@ -1,3 +1,4 @@
+/* autoprefixer: off */
 page {
   background-color: #f5f5f5;
 }

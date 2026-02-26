@@ -12,8 +12,13 @@
 
     <view wx:if="{{!hasUserInfo}}" class="login-section">
       <view class="avatar-animation">
-        <view class="avatar-circle"></view>
-        <view class="avatar-wave"></view>
+        <view class="avatar-circle">
+          <view class="avatar-face">
+            <view class="avatar-eye left"></view>
+            <view class="avatar-eye right"></view>
+            <view class="avatar-mouth"></view>
+          </view>
+        </view>
       </view>
       <view class="agreement-box">
         <checkbox-group bindchange="onAgreementChange">

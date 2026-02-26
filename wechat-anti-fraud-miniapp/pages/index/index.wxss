@@ -76,62 +76,86 @@
   left: 0;
   width: 200rpx;
   height: 200rpx;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.avatar-wave {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.avatar-face {
+  position: relative;
   width: 120rpx;
   height: 120rpx;
-  background: #ffffff;
-  border-radius: 50%;
-  animation: wave 1.5s ease-in-out infinite;
+  animation: faceMove 1.5s ease-in-out infinite;
 }
 
-.avatar-wave::before {
-  content: '';
+.avatar-eye {
   position: absolute;
-  top: 30%;
-  left: 30%;
+  top: 30rpx;
   width: 24rpx;
   height: 24rpx;
-  background: #667eea;
+  background: #333333;
   border-radius: 50%;
+  animation: blink 3s infinite;
 }
 
-.avatar-wave::after {
-  content: '';
+.avatar-eye.left {
+  left: 20rpx;
+}
+
+.avatar-eye.right {
+  right: 20rpx;
+}
+
+.avatar-mouth {
   position: absolute;
-  top: 30%;
-  right: 30%;
-  width: 24rpx;
-  height: 24rpx;
-  background: #667eea;
-  border-radius: 50%;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30rpx;
+  height: 15rpx;
+  background: #333333;
+  border-radius: 0 0 15rpx 15rpx;
+  animation: smile 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+    box-shadow: 0 0 0 0 rgba(252, 182, 159, 0.4);
   }
   50% {
     transform: scale(1.05);
-    box-shadow: 0 0 0 20rpx rgba(102, 126, 234, 0);
+    box-shadow: 0 0 0 20rpx rgba(252, 182, 159, 0);
   }
 }
 
-@keyframes wave {
+@keyframes faceMove {
   0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translateY(0);
   }
   50% {
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translateY(-5rpx);
+  }
+}
+
+@keyframes blink {
+  0%, 45%, 55%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes smile {
+  0%, 100% {
+    width: 30rpx;
+  }
+  50% {
+    width: 40rpx;
   }
 }
 
