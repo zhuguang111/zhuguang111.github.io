@@ -1,0 +1,52 @@
+<view class="container">
+  <view class="form-section">
+    <view class="form-item">
+      <text class="label">诈骗类型</text>
+      <picker mode="selector" range="{{fraudTypes}}" bindchange="onFraudTypeChange">
+        <view class="picker">
+          {{formData.fraudType ? formData.fraudType : '请选择诈骗类型'}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">涉事电话</text>
+      <input class="input" type="text" placeholder="请输入涉事电话号码" value="{{formData.phone}}" bindinput="onPhoneInput" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">涉及金额</text>
+      <input class="input" type="digit" placeholder="请输入涉及金额(可选)" value="{{formData.amount}}" bindinput="onAmountInput" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">发生时间</text>
+      <picker mode="date" value="{{formData.time}}" bindchange="onTimeChange">
+        <view class="picker">
+          {{formData.time ? formData.time : '请选择发生时间(可选)'}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">详细描述</text>
+      <textarea class="textarea" placeholder="请详细描述诈骗经过" value="{{formData.content}}" bindinput="onContentInput" maxlength="500"></textarea>
+      <text class="char-count">{{formData.content.length}}/500</text>
+    </view>
+
+    <view class="form-item">
+      <text class="label">上传证据</text>
+      <view class="upload-section">
+        <view wx:if="{{formData.attachments.length < 3}}" class="upload-btn" bindtap="chooseImage">
+          <text class="upload-icon">+</text>
+          <text class="upload-text">上传图片</text>
+        </view>
+        <view wx:for="{{formData.attachments}}" wx:key="index" class="image-item">
+          <image class="image" src="{{item}}" mode="aspectFill"></image>
+        </view>
+      </view>
+    </view>
+
+    <button class="submit-btn" bindtap="submitForm">提交举报</button>
+  </view>
+</view>

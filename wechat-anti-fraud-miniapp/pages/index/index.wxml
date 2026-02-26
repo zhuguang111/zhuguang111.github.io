@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="header">
+    <image class="logo" src="/images/logo.png" mode="aspectFit"></image>
+    <text class="title">防诈骗线索举报</text>
+  </view>
+
+  <view class="content">
+    <view class="info-card">
+      <text class="info-title">欢迎使用</text>
+      <text class="info-desc">上传疑似电信诈骗线索，共同维护网络安全</text>
+    </view>
+
+    <view wx:if="{{!hasUserInfo}}" class="login-section">
+      <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+        授权登录
+      </button>
+    </view>
+
+    <view wx:else class="user-info">
+      <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+      <text class="nickname">{{userInfo.nickName}}</text>
+      <text class="welcome">欢迎回来</text>
+    </view>
+
+    <button class="action-btn" bindtap="navigateToSubmit">立即举报</button>
+  </view>
+</view>

@@ -1,0 +1,47 @@
+<view class="container">
+  <view wx:if="{{loading}}" class="loading">
+    <text>加载中...</text>
+  </view>
+
+  <view wx:elif="{{records.length === 0}}" class="empty">
+    <text>暂无举报记录</text>
+  </view>
+
+  <view wx:else class="record-list">
+    <view wx:for="{{records}}" wx:key="_id" class="record-item">
+      <view class="record-header">
+        <text class="type">{{item.fraudType}}</text>
+        <text class="status">已提交</text>
+      </view>
+
+      <view class="record-content">
+        <view class="content-row">
+          <text class="label">电话:</text>
+          <text class="value">{{item.phone}}</text>
+        </view>
+
+        <view wx:if="{{item.amount}}" class="content-row">
+          <text class="label">金额:</text>
+          <text class="value">¥{{item.amount}}</text>
+        </view>
+
+        <view wx:if="{{item.time}}" class="content-row">
+          <text class="label">时间:</text>
+          <text class="value">{{item.time}}</text>
+        </view>
+
+        <view class="content-desc">
+          <text class="desc-text">{{item.content}}</text>
+        </view>
+
+        <view wx:if="{{item.attachments && item.attachments.length > 0}}" class="attachments">
+          <image wx:for="{{item.attachments}}" wx:for-item="img" wx:for-index="idx" wx:key="idx" class="attachment-image" src="{{img}}" mode="aspectFill" bindtap="previewImage" data-url="{{img}}"></image>
+        </view>
+      </view>
+
+      <view class="record-footer">
+        <text class="submit-time">{{item.submitTime}}</text>
+      </view>
+    </view>
+  </view>
+</view>

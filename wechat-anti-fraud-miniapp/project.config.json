@@ -1,0 +1,19 @@
+{
+  "miniprogramRoot": "./",
+  "cloudfunctionRoot": "./cloudfunctions/",
+  "appid": "wx6b4f24f7e154d8b5",
+  "projectname": "anti-fraud-miniapp",
+  "libVersion": "2.19.4",
+  "compileType": "miniprogram",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "首页",
+          "pathName": "pages/index/index",
+          "query": ""
+        }
+      ]
+    }
+  }
+}
