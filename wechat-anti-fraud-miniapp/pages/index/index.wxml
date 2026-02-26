@@ -11,6 +11,10 @@
     </view>
 
     <view wx:if="{{!hasUserInfo}}" class="login-section">
+      <view class="avatar-animation">
+        <view class="avatar-circle"></view>
+        <view class="avatar-wave"></view>
+      </view>
       <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
         授权登录
       </button>

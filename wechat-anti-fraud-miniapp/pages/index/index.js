@@ -36,6 +36,8 @@ Page({
     });
 
     try {
+      console.log('开始登录, userInfo:', userInfo);
+
       const res = await wx.cloud.callFunction({
         name: 'login',
         data: {
@@ -43,7 +45,9 @@ Page({
         }
       });
 
-      if (res.result.success) {
+      console.log('云函数返回结果:', res);
+
+      if (res.result && res.result.success) {
         const userInfoData = {
           ...res.result.data,
           avatarUrl: userInfo.avatarUrl,
@@ -62,12 +66,15 @@ Page({
           title: '登录成功',
           icon: 'success'
         });
+      } else {
+        throw new Error('登录失败: ' + JSON.stringify(res.result));
       }
     } catch (err) {
       console.error('登录失败:', err);
       wx.showToast({
-        title: '登录失败',
-        icon: 'none'
+        title: '登录失败,请重试',
+        icon: 'none',
+        duration: 2000
       });
     } finally {
       wx.hideLoading();
