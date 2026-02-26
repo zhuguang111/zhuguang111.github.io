@@ -4,7 +4,7 @@
       <text class="label">诈骗类型</text>
       <picker mode="selector" range="{{fraudTypes}}" bindchange="onFraudTypeChange">
         <view class="picker">
-          {{formData.fraudType ? formData.fraudType : '请选择诈骗类型'}}
+          {{formData.fraudType ? formData.fraudType : '请选择电信诈骗类型'}}
         </view>
       </picker>
     </view>
@@ -66,6 +66,6 @@
       <text class="upload-tip">提示: 图片最多8张,视频最多1个,文件最多2个</text>
     </view>
 
-    <button class="submit-btn" bindtap="submitForm">提交举报</button>
+    <button class="submit-btn" bindtap="submitForm">提交线索</button>
   </view>
 </view>

@@ -18,7 +18,7 @@ Page({
       '投资理财',
       '刷单返利',
       '冒充亲友',
-      '其他'
+      '杀猪盘'
     ]
   },
 
@@ -233,7 +233,7 @@ Page({
 
       if (res.result.success) {
         wx.showToast({
-          title: '提交成功',
+          title: '线索提交成功',
           icon: 'success'
         });
 

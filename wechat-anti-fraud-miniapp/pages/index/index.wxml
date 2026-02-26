@@ -7,7 +7,7 @@
   <view class="content">
     <view class="info-card">
       <text class="info-title">欢迎使用</text>
-      <text class="info-desc">上传疑似电信诈骗线索，共同维护网络安全</text>
+      <text class="info-desc">提交电信诈骗线索,共同维护网络安全</text>
     </view>
 
     <view wx:if="{{!hasUserInfo}}" class="login-section">
@@ -40,6 +40,6 @@
       <text class="welcome">欢迎回来</text>
     </view>
 
-    <button class="action-btn" bindtap="navigateToSubmit">立即举报</button>
+    <button class="action-btn" bindtap="navigateToSubmit">提交线索</button>
   </view>
 </view>
