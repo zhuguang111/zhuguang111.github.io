@@ -12,7 +12,16 @@ Page({
   onLoad() {
     this.checkLoginStatus();
   },
-    this.checkLoginStatus();
+
+  checkLoginStatus() {
+    const adminInfo = wx.getStorageSync('adminInfo');
+    if (adminInfo) {
+      this.setData({
+        isLoggedIn: true,
+        adminName: adminInfo.username
+      });
+      this.loadReports();
+    }
   },
 
   onUsernameInput(e) {
@@ -83,15 +92,6 @@ Page({
       });
     } finally {
       wx.hideLoading();
-    }
-  },
-    const adminInfo = wx.getStorageSync('adminInfo');
-    if (adminInfo) {
-      this.setData({
-        isLoggedIn: true,
-        adminName: adminInfo.username
-      });
-      this.loadReports();
     }
   },
 

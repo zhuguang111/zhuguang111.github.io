@@ -90,6 +90,11 @@ Page({
   },
 
   navigateToAgreement() {
+    wx.navigateTo({
+      url: '/pages/agreement/agreement'
+    });
+  },
+
   navigateToSubmit() {
     if (!this.data.hasUserInfo) {
       wx.showToast({
@@ -106,17 +111,6 @@ Page({
   onAgreementChange(e) {
     this.setData({
       agreedToTerms: e.detail.value.length > 0
-    });
-  },
-    if (!this.data.hasUserInfo) {
-      wx.showToast({
-        title: '请先登录',
-        icon: 'none'
-      });
-      return;
-    }
-    wx.navigateTo({
-      url: '/pages/submit/submit'
     });
   }
 });
