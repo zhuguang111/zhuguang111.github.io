@@ -15,7 +15,16 @@
         <view class="avatar-circle"></view>
         <view class="avatar-wave"></view>
       </view>
-      <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+      <view class="agreement-box">
+        <checkbox-group bindchange="onAgreementChange">
+          <label class="agreement-label">
+            <checkbox value="agree" checked="{{agreedToTerms}}" />
+            <text class="agreement-text">我已阅读并同意</text>
+            <text class="agreement-link" bindtap="navigateToAgreement">《用户协议与隐私政策》</text>
+          </label>
+        </checkbox-group>
+      </view>
+      <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo" disabled="{{!agreedToTerms}}">
         授权登录
       </button>
     </view>

@@ -6,7 +6,9 @@ Page({
       amount: '',
       time: '',
       content: '',
-      attachments: []
+      attachments: [],
+      videos: [],
+      files: []
     },
     fraudTypes: [
       '冒充公检法',
@@ -66,17 +68,91 @@ Page({
   },
 
   chooseImage() {
+    const currentCount = this.data.formData.attachments.length;
+    if (currentCount >= 3) {
+      wx.showToast({
+        title: '最多上传3张图片',
+        icon: 'none'
+      });
+      return;
+    }
     wx.chooseImage({
-      count: 3,
+      count: 3 - currentCount,
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
       success: (res) => {
         const tempFilePaths = res.tempFilePaths;
         this.setData({
-          'formData.attachments': tempFilePaths
+          'formData.attachments': [...this.data.formData.attachments, ...tempFilePaths]
         });
       }
     });
+  },
+
+  chooseVideo() {
+    const currentCount = this.data.formData.videos.length;
+    if (currentCount >= 1) {
+      wx.showToast({
+        title: '最多上传1个视频',
+        icon: 'none'
+      });
+      return;
+    }
+    wx.chooseVideo({
+      sourceType: ['album', 'camera'],
+      maxDuration: 60,
+      camera: 'back',
+      success: (res) => {
+        this.setData({
+          'formData.videos': [...this.data.formData.videos, res.tempFilePath]
+        });
+      }
+    });
+  },
+
+  chooseFile() {
+    const currentCount = this.data.formData.files.length;
+    if (currentCount >= 2) {
+      wx.showToast({
+        title: '最多上传2个文件',
+        icon: 'none'
+      });
+      return;
+    }
+    wx.chooseMessageFile({
+      count: 2 - currentCount,
+      type: 'file',
+      extension: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt'],
+      success: (res) => {
+        const tempFiles = res.tempFiles;
+        this.setData({
+          'formData.files': [...this.data.formData.files, ...tempFiles]
+        });
+      }
+    });
+  },
+
+  removeAttachment(e) {
+    const { type, index } = e.currentTarget.dataset;
+    if (type === 'image') {
+      const attachments = [...this.data.formData.attachments];
+      attachments.splice(index, 1);
+      this.setData({
+        'formData.attachments': attachments
+      });
+    } else if (type === 'video') {
+      const videos = [...this.data.formData.videos];
+      videos.splice(index, 1);
+      this.setData({
+        'formData.videos': videos
+      });
+    } else if (type === 'file') {
+      const files = [...this.data.formData.files];
+      files.splice(index, 1);
+      this.setData({
+        'formData.files': files
+      });
+    }
   },
 
   async submitForm() {
@@ -111,14 +187,33 @@ Page({
     });
 
     try {
-      const fileInfo = this.data.formData.attachments.map(filePath => {
+      // 上传图片
+      const imageUploads = this.data.formData.attachments.map(filePath => {
         return wx.cloud.uploadFile({
-          cloudPath: `fraud/${Date.now()}_${Math.random().toString(36).substr(2, 9)}.jpg`,
+          cloudPath: `fraud/images/${Date.now()}_${Math.random().toString(36).substr(2, 9)}.jpg`,
           filePath: filePath
         });
       });
 
-      const uploadResults = await Promise.all(fileInfo);
+      // 上传视频
+      const videoUploads = this.data.formData.videos.map(filePath => {
+        const ext = filePath.split('.').pop();
+        return wx.cloud.uploadFile({
+          cloudPath: `fraud/videos/${Date.now()}_${Math.random().toString(36).substr(2, 9)}.${ext}`,
+          filePath: filePath
+        });
+      });
+
+      // 上传文件
+      const fileUploads = this.data.formData.files.map(file => {
+        const ext = file.name.split('.').pop();
+        return wx.cloud.uploadFile({
+          cloudPath: `fraud/files/${Date.now()}_${Math.random().toString(36).substr(2, 9)}.${ext}`,
+          filePath: file.path
+        });
+      });
+
+      const uploadResults = await Promise.all([...imageUploads, ...videoUploads, ...fileUploads]);
       const fileIDs = uploadResults.map(res => res.fileID);
 
       const res = await wx.cloud.callFunction({
@@ -129,7 +224,10 @@ Page({
           amount: this.data.formData.amount,
           time: this.data.formData.time,
           content: this.data.formData.content,
-          attachments: fileIDs
+          attachments: fileIDs,
+          hasImages: this.data.formData.attachments.length > 0,
+          hasVideos: this.data.formData.videos.length > 0,
+          hasFiles: this.data.formData.files.length > 0
         }
       });
 
@@ -146,7 +244,9 @@ Page({
             amount: '',
             time: '',
             content: '',
-            attachments: []
+            attachments: [],
+            videos: [],
+            files: []
           }
         });
 
@@ -159,7 +259,7 @@ Page({
     } catch (err) {
       console.error('提交失败:', err);
       wx.showToast({
-        title: '提交失败',
+        title: '提交失败,请重试',
         icon: 'none'
       });
     } finally {

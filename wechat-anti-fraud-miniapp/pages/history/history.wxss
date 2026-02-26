@@ -4,6 +4,16 @@
   padding: 20rpx;
 }
 
+.admin-entry {
+  background: #1890ff;
+  color: #ffffff;
+  text-align: center;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+}
+
 .loading,
 .empty {
   text-align: center;
@@ -40,10 +50,23 @@
 
 .status {
   font-size: 24rpx;
-  color: #52c41a;
-  background: #f6ffed;
-  padding: 4rpx 16rpx;
+  padding: 6rpx 16rpx;
   border-radius: 20rpx;
+}
+
+.status-pending {
+  background: #fff7e6;
+  color: #fa8c16;
+}
+
+.status-approved {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.status-rejected {
+  background: #fff1f0;
+  color: #f5222d;
 }
 
 .record-content {

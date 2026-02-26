@@ -2,7 +2,8 @@ Page({
   data: {
     userInfo: null,
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    agreedToTerms: false
   },
 
   onLoad() {
@@ -21,6 +22,13 @@ Page({
 
   getUserInfo(e) {
     if (e.detail.userInfo) {
+      if (!this.data.agreedToTerms) {
+        wx.showToast({
+          title: '请先同意用户协议',
+          icon: 'none'
+        });
+        return;
+      }
       this.login(e.detail);
     } else {
       wx.showToast({
@@ -81,7 +89,25 @@ Page({
     }
   },
 
+  navigateToAgreement() {
   navigateToSubmit() {
+    if (!this.data.hasUserInfo) {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none'
+      });
+      return;
+    }
+    wx.navigateTo({
+      url: '/pages/submit/submit'
+    });
+  },
+
+  onAgreementChange(e) {
+    this.setData({
+      agreedToTerms: e.detail.value.length > 0
+    });
+  },
     if (!this.data.hasUserInfo) {
       wx.showToast({
         title: '请先登录',

@@ -11,7 +11,7 @@
     <view wx:for="{{records}}" wx:key="_id" class="record-item">
       <view class="record-header">
         <text class="type">{{item.fraudType}}</text>
-        <text class="status">已提交</text>
+        <text class="status status-{{item.status}}">{{item.status === 'pending' ? '待处理' : item.status === 'approved' ? '已通过' : '已驳回'}}</text>
       </view>
 
       <view class="record-content">

@@ -1,0 +1,71 @@
+<view class="container">
+  <!-- 未登录状态 -->
+  <view wx:if="{{!isLoggedIn}}" class="login-container">
+    <view class="login-box">
+      <text class="title">管理员登录</text>
+      <input class="input" type="text" placeholder="用户名" bindinput="onUsernameInput" />
+      <input class="input" type="password" placeholder="密码" bindinput="onPasswordInput" />
+      <button class="login-btn" bindtap="login">登录</button>
+    </view>
+  </view>
+
+  <!-- 已登录状态 -->
+  <view wx:else class="admin-container">
+    <view class="header">
+      <text class="welcome">欢迎, {{adminName}}</text>
+      <text class="logout-btn" bindtap="logout">退出</text>
+    </view>
+
+    <view class="filter-bar">
+      <text class="filter-item {{filterStatus === 'all' ? 'active' : ''}}" bindtap="onFilterChange" data-status="all">全部</text>
+      <text class="filter-item {{filterStatus === 'pending' ? 'active' : ''}}" bindtap="onFilterChange" data-status="pending">待处理</text>
+      <text class="filter-item {{filterStatus === 'approved' ? 'active' : ''}}" bindtap="onFilterChange" data-status="approved">已通过</text>
+      <text class="filter-item {{filterStatus === 'rejected' ? 'active' : ''}}" bindtap="onFilterChange" data-status="rejected">已驳回</text>
+    </view>
+
+    <view wx:if="{{loading}}" class="loading">
+      <text>加载中...</text>
+    </view>
+
+    <view wx:elif="{{reports.length === 0}}" class="empty">
+      <text>暂无举报记录</text>
+    </view>
+
+    <view wx:else class="report-list">
+      <view wx:for="{{reports}}" wx:key="_id" class="report-item">
+        <view class="report-header">
+          <text class="type">{{item.fraudType}}</text>
+          <text class="status status-{{item.status}}">{{item.status === 'pending' ? '待处理' : item.status === 'approved' ? '已通过' : '已驳回'}}</text>
+        </view>
+
+        <view class="report-body">
+          <view class="info-row">
+            <text class="label">电话:</text>
+            <text class="value">{{item.phone}}</text>
+          </view>
+          <view wx:if="{{item.amount}}" class="info-row">
+            <text class="label">金额:</text>
+            <text class="value">¥{{item.amount}}</text>
+          </view>
+          <view wx:if="{{item.time}}" class="info-row">
+            <text class="label">时间:</text>
+            <text class="value">{{item.time}}</text>
+          </view>
+          <view class="info-row">
+            <text class="label">描述:</text>
+            <text class="value">{{item.content}}</text>
+          </view>
+        </view>
+
+        <view class="report-footer">
+          <text class="time">{{item.submitTime}}</text>
+          <view class="actions">
+            <text class="action-btn view-btn" bindtap="viewDetail" data-report="{{item}}">查看</text>
+            <text wx:if="{{item.status === 'pending'}}" class="action-btn approve-btn" bindtap="handleReport" data-id="{{item._id}}" data-action="approve">通过</text>
+            <text wx:if="{{item.status === 'pending'}}" class="action-btn reject-btn" bindtap="handleReport" data-id="{{item._id}}" data-action="reject">驳回</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -52,6 +52,20 @@ Page({
     }
   },
 
+  previewImage(e) {
+    const url = e.currentTarget.dataset.url;
+    const attachments = [];
+    this.data.records.forEach(record => {
+      if (record.attachments) {
+        attachments.push(...record.attachments);
+      }
+    });
+    wx.previewImage({
+      current: url,
+      urls: attachments
+    });
+  },
+
   onPullDownRefresh() {
     this.loadRecords().then(() => {
       wx.stopPullDownRefresh();

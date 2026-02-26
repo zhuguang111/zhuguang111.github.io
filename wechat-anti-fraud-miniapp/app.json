@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/submit/submit",
-    "pages/history/history"
+    "pages/history/history",
+    "pages/agreement/agreement",
+    "pages/admin/admin"
   ],
   "window": {
     "backgroundTextStyle": "light",

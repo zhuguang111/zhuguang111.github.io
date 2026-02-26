@@ -38,13 +38,32 @@
       <text class="label">上传证据</text>
       <view class="upload-section">
         <view wx:if="{{formData.attachments.length < 3}}" class="upload-btn" bindtap="chooseImage">
-          <text class="upload-icon">+</text>
+          <text class="upload-icon">📷</text>
           <text class="upload-text">上传图片</text>
+        </view>
+        <view wx:if="{{formData.videos.length < 1}}" class="upload-btn" bindtap="chooseVideo">
+          <text class="upload-icon">🎥</text>
+          <text class="upload-text">上传视频</text>
+        </view>
+        <view wx:if="{{formData.files.length < 2}}" class="upload-btn" bindtap="chooseFile">
+          <text class="upload-icon">📄</text>
+          <text class="upload-text">上传文件</text>
         </view>
         <view wx:for="{{formData.attachments}}" wx:key="index" class="image-item">
           <image class="image" src="{{item}}" mode="aspectFill"></image>
+          <text class="remove-btn" bindtap="removeAttachment" data-type="image" data-index="{{index}}">×</text>
+        </view>
+        <view wx:for="{{formData.videos}}" wx:key="index" class="video-item">
+          <video class="video" src="{{item}}" object-fit="cover"></video>
+          <text class="remove-btn" bindtap="removeAttachment" data-type="video" data-index="{{index}}">×</text>
+        </view>
+        <view wx:for="{{formData.files}}" wx:key="index" class="file-item">
+          <text class="file-icon">📄</text>
+          <text class="file-name">{{item.name}}</text>
+          <text class="remove-btn" bindtap="removeAttachment" data-type="file" data-index="{{index}}">×</text>
         </view>
       </view>
+      <text class="upload-tip">提示: 图片最多3张,视频最多1个,文件最多2个</text>
     </view>
 
     <button class="submit-btn" bindtap="submitForm">提交举报</button>
