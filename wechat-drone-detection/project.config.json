@@ -41,5 +41,6 @@
   "libVersion": "2.19.4",
   "appid": "wx6b4f24f7e154d8b5",
   "projectname": "wechat-drone-detection",
+  "cloudfunctionRoot": "cloudfunctions/",
   "condition": {}
 }
