@@ -13,7 +13,10 @@
   <view wx:else class="admin-container">
     <view class="header">
       <text class="welcome">欢迎, {{adminName}}</text>
-      <text class="logout-btn" bindtap="logout">退出</text>
+      <view class="header-actions">
+        <text class="location-btn" bindtap="navigateToLocationRecords">位置追踪</text>
+        <text class="logout-btn" bindtap="logout">退出</text>
+      </view>
     </view>
 
     <view class="filter-bar">

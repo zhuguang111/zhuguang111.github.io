@@ -204,5 +204,11 @@ Page({
         }
       }
     });
+  },
+
+  navigateToLocationRecords() {
+    wx.navigateTo({
+      url: '/pages/location-records/location-records'
+    });
   }
 });

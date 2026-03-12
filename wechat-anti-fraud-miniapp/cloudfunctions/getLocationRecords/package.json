@@ -1,0 +1,11 @@
+{
+  "name": "getLocationRecords",
+  "version": "1.0.0",
+  "description": "查询人员位置记录",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

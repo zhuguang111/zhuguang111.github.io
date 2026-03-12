@@ -4,7 +4,8 @@
     "pages/submit/submit",
     "pages/history/history",
     "pages/agreement/agreement",
-    "pages/admin/admin"
+    "pages/admin/admin",
+    "pages/location-records/location-records"
   ],
   "window": {
     "backgroundTextStyle": "light",

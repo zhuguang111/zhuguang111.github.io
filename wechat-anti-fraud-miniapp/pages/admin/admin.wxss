@@ -74,6 +74,20 @@
   font-size: 28rpx;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 30rpx;
+}
+
+.location-btn {
+  color: #ffffff;
+  font-size: 28rpx;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10rpx 20rpx;
+  border-radius: 8rpx;
+}
+
 .filter-bar {
   background: #ffffff;
   padding: 30rpx 40rpx;
