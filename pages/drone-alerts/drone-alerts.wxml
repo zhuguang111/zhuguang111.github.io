@@ -1,0 +1,50 @@
+<view class="container">
+  <view class="header">
+    <view class="unread-badge" wx:if="{{unreadCount > 0}}">
+      <text>{{unreadCount}} 条未读警报</text>
+    </view>
+  </view>
+
+  <view class="tabs">
+    <view class="tab {{filterType === 'all' ? 'active' : ''}}" bindtap="switchFilter" data-type="all">全部</view>
+    <view class="tab {{filterType === 'unread' ? 'active' : ''}}" bindtap="switchFilter" data-type="unread">未读</view>
+    <view class="tab {{filterType === 'pending' ? 'active' : ''}}" bindtap="switchFilter" data-type="pending">待处理</view>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading">加载中...</view>
+  <view wx:elif="{{alerts.length === 0}}" class="empty">暂无警报</view>
+
+  <view wx:else class="alert-list">
+    <view wx:for="{{alerts}}" wx:key="_id" class="alert-item {{item.is_read ? '' : 'unread'}}">
+      <view class="alert-header">
+        <view class="alert-icon"></view>
+        <view class="alert-title">{{item.location_name}}</view>
+        <view class="alert-status {{item.is_handled ? 'handled' : 'pending'}}">
+          {{item.is_handled ? '已处理' : '待处理'}}
+        </view>
+      </view>
+
+      <view class="alert-body">
+        <view class="alert-info">
+          <text class="label">频率:</text>
+          <text class="value">{{item.frequency}} MHz</text>
+        </view>
+        <view class="alert-info">
+          <text class="label">信号强度:</text>
+          <text class="value">{{item.signal_strength}} dBm</text>
+        </view>
+        <view class="alert-info">
+          <text class="label">检测时间:</text>
+          <text class="value">{{item.formatted_time}}</text>
+        </view>
+      </view>
+
+      <view class="alert-actions" wx:if="{{!item.is_handled}}">
+        <view class="action-btn handle-btn" bindtap="handleAlert" data-id="{{item._id}}" data-action="handle">处理</view>
+        <view class="action-btn ignore-btn" bindtap="handleAlert" data-id="{{item._id}}" data-action="ignore">忽略</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{hasMore && !loading}}" class="load-more" bindtap="loadMore">加载更多</view>
+</view>

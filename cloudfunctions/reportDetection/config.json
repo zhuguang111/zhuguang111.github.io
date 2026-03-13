@@ -1,0 +1,13 @@
+{
+  "triggers": [
+    {
+      "name": "http_trigger",
+      "type": "http",
+      "config": {
+        "methods": ["POST", "GET"],
+        "path": "/report"
+      }
+    }
+  ]
+}
+
