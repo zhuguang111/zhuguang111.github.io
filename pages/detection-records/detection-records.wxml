@@ -1,0 +1,48 @@
+<view class="container">
+  <view class="filter-bar">
+    <picker range="{{locations}}" range-key="location_name" bindchange="onLocationChange">
+      <view class="filter-item">
+        监测点: {{selectedLocationName || '全部'}}
+      </view>
+    </picker>
+    <picker mode="date" value="{{selectedDate}}" start="2025-01-01" end="{{today}}" bindchange="onDateChange">
+      <view class="filter-item">
+        日期: {{selectedDate || '全部'}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="tabs">
+    <view class="tab {{filterDrone === '' ? 'active' : ''}}" bindtap="switchFilter" data-drone="">全部</view>
+    <view class="tab {{filterDrone === 'true' ? 'active' : ''}}" bindtap="switchFilter" data-drone="true">无人机信号</view>
+    <view class="tab {{filterDrone === 'false' ? 'active' : ''}}" bindtap="switchFilter" data-drone="false">正常信号</view>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading">加载中...</view>
+  <view wx:elif="{{records.length === 0}}" class="empty">暂无记录</view>
+
+  <view wx:else class="record-list">
+    <view wx:for="{{records}}" wx:key="_id" class="record-item {{item.is_drone ? 'drone' : ''}}">
+      <view class="record-header">
+        <view class="location">{{item.location_name}}</view>
+        <view class="drone-tag" wx:if="{{item.is_drone}}">无人机</view>
+      </view>
+      <view class="record-body">
+        <view class="info">
+          <text class="label">频率:</text>
+          <text class="value">{{item.frequency}} MHz</text>
+        </view>
+        <view class="info">
+          <text class="label">信号强度:</text>
+          <text class="value {{item.signal_strength >= -50 ? 'strong' : ''}}">{{item.signal_strength}} dBm</text>
+        </view>
+        <view class="info">
+          <text class="label">时间:</text>
+          <text class="value">{{item.formatted_time}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{hasMore && !loading}}" class="load-more" bindtap="loadMore">加载更多</view>
+</view>

@@ -1,0 +1,76 @@
+<view class="container">
+  <view class="add-btn" bindtap="showAddModal">
+    <text>+ 添加监测点</text>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading">加载中...</view>
+  <view wx:elif="{{locations.length === 0}}" class="empty">暂无监测点</view>
+
+  <view wx:else class="location-list">
+    <view wx:for="{{locations}}" wx:key="_id" class="location-item">
+      <view class="location-header">
+        <view class="location-name">{{item.location_name}}</view>
+        <view class="status-badge {{item.status}}">{{item.status === 'active' ? '在线' : '离线'}}</view>
+      </view>
+      <view class="location-body">
+        <view class="info">
+          <text class="label">设备ID:</text>
+          <text class="value">{{item.location_id}}</text>
+        </view>
+        <view class="info">
+          <text class="label">位置描述:</text>
+          <text class="value">{{item.location_desc || '-'}}</text>
+        </view>
+        <view class="info">
+          <text class="label">监测频段:</text>
+          <text class="value">{{item.frequency_min}} - {{item.frequency_max}} MHz</text>
+        </view>
+        <view class="info">
+          <text class="label">警报阈值:</text>
+          <text class="value">>= {{item.threshold}} dBm</text>
+        </view>
+      </view>
+      <view class="location-actions">
+        <view class="action-btn" bindtap="showEditModal" data-item="{{item}}">编辑</view>
+        <view class="action-btn delete" bindtap="deleteLocation" data-id="{{item.location_id}}">删除</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{showModal}}" class="modal">
+    <view class="modal-mask" bindtap="hideModal"></view>
+    <view class="modal-content">
+      <view class="modal-title">{{isEdit ? '编辑监测点' : '添加监测点'}}</view>
+      <view class="form">
+        <view class="form-item">
+          <view class="form-label">设备ID *</view>
+          <input class="form-input" disabled="{{isEdit}}" value="{{form.location_id}}" bindinput="onInput" data-field="location_id" placeholder="如: device_001" />
+        </view>
+        <view class="form-item">
+          <view class="form-label">监测点名称 *</view>
+          <input class="form-input" value="{{form.location_name}}" bindinput="onInput" data-field="location_name" placeholder="如: 梅边" />
+        </view>
+        <view class="form-item">
+          <view class="form-label">位置描述</view>
+          <input class="form-input" value="{{form.location_desc}}" bindinput="onInput" data-field="location_desc" placeholder="位置描述" />
+        </view>
+        <view class="form-item">
+          <view class="form-label">频段最小值(MHz) *</view>
+          <input class="form-input" type="digit" value="{{form.frequency_min}}" bindinput="onInput" data-field="frequency_min" placeholder="如: 2400" />
+        </view>
+        <view class="form-item">
+          <view class="form-label">频段最大值(MHz) *</view>
+          <input class="form-input" type="digit" value="{{form.frequency_max}}" bindinput="onInput" data-field="frequency_max" placeholder="如: 2500" />
+        </view>
+        <view class="form-item">
+          <view class="form-label">警报阈值(dBm) *</view>
+          <input class="form-input" type="digit" value="{{form.threshold}}" bindinput="onInput" data-field="threshold" placeholder="如: -70" />
+        </view>
+      </view>
+      <view class="modal-actions">
+        <view class="cancel-btn" bindtap="hideModal">取消</view>
+        <view class="confirm-btn" bindtap="submitForm">确定</view>
+      </view>
+    </view>
+  </view>
+</view>
