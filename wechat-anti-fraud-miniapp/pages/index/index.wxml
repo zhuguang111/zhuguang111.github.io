@@ -1,0 +1,45 @@
+<view class="container">
+  <view class="header">
+    <view class="logo-placeholder">🛡️</view>
+    <text class="title">防诈骗线索举报</text>
+  </view>
+
+  <view class="content">
+    <view class="info-card">
+      <text class="info-title">欢迎使用</text>
+      <text class="info-desc">提交电信诈骗线索,共同维护网络安全</text>
+    </view>
+
+    <view wx:if="{{!hasUserInfo}}" class="login-section">
+      <view class="avatar-animation">
+        <view class="avatar-circle">
+          <view class="avatar-face">
+            <view class="avatar-eye left"></view>
+            <view class="avatar-eye right"></view>
+            <view class="avatar-mouth"></view>
+          </view>
+        </view>
+      </view>
+      <view class="agreement-box">
+        <checkbox-group bindchange="onAgreementChange">
+          <label class="agreement-label">
+            <checkbox value="agree" checked="{{agreedToTerms}}" />
+            <text class="agreement-text">我已阅读并同意</text>
+            <text class="agreement-link" bindtap="navigateToAgreement">《用户协议与隐私政策》</text>
+          </label>
+        </checkbox-group>
+      </view>
+      <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo" disabled="{{!agreedToTerms}}">
+        授权登录
+      </button>
+    </view>
+
+    <view wx:else class="user-info">
+      <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+      <text class="nickname">{{userInfo.nickName}}</text>
+      <text class="welcome">欢迎回来</text>
+    </view>
+
+    <button class="action-btn" bindtap="navigateToSubmit">提交线索</button>
+  </view>
+</view>

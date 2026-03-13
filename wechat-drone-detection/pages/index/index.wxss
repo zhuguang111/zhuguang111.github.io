@@ -1,0 +1,137 @@
+.container {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+.header {
+  background: linear-gradient(135deg, #ff4d4f, #ff7a45);
+  padding: 60rpx 40rpx;
+  color: #fff;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  opacity: 0.9;
+}
+
+.stats {
+  display: flex;
+  background: #fff;
+  padding: 40rpx 0;
+  margin: -30rpx 30rpx 30rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+  border-right: 1rpx solid #f0f0f0;
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-value {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #ff4d4f;
+  margin-bottom: 10rpx;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.menu {
+  margin: 0 30rpx;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.menu-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 16rpx;
+  margin-right: 20rpx;
+}
+
+.alert-icon {
+  background: linear-gradient(135deg, #ff4d4f, #ff7a45);
+}
+
+.record-icon {
+  background: linear-gradient(135deg, #1890ff, #36aafd);
+}
+
+.location-icon {
+  background: linear-gradient(135deg, #52c41a, #73d13d);
+}
+
+.admin-icon {
+  background: linear-gradient(135deg, #722ed1, #9254de);
+}
+
+.menu-text {
+  flex: 1;
+}
+
+.menu-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.menu-desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin: 30rpx 30rpx 20rpx;
+}
+
+.recent-alerts {
+  margin-top: 20rpx;
+}
+
+.alert-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  margin: 0 30rpx 20rpx;
+  padding: 30rpx;
+  border-radius: 12rpx;
+  border-left: 8rpx solid #ff4d4f;
+}
+
+.alert-location {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.alert-time {
+  font-size: 24rpx;
+  color: #999;
+}

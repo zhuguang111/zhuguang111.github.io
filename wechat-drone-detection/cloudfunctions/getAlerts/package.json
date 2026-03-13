@@ -1,0 +1,11 @@
+{
+  "name": "getAlerts",
+  "version": "1.0.0",
+  "description": "获取警报列表",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

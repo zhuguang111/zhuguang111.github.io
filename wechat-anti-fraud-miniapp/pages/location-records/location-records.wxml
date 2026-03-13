@@ -1,0 +1,63 @@
+<view class="container">
+  <view class="header">
+    <view class="title">位置追踪记录</view>
+    <view class="date-picker">
+      <picker mode="date" value="{{selectedDate}}" start="2025-01-01" end="{{today}}" bindchange="onDateChange">
+        <view class="picker">
+          {{selectedDate}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="tabs">
+    <view class="tab {{currentTab === 'records' ? 'active' : ''}}" bindtap="switchTab" data-tab="records">记录列表</view>
+    <view class="tab {{currentTab === 'statistics' ? 'active' : ''}}" bindtap="switchTab" data-tab="statistics">频率统计</view>
+  </view>
+
+  <view class="filter">
+    <picker range="{{locations}}" range-key="location_name" bindchange="onLocationChange">
+      <view class="filter-item">
+        监测点: {{selectedLocationName || '全部'}}
+      </view>
+    </picker>
+  </view>
+
+  <view wx:if="{{currentTab === 'records'}}" class="content">
+    <view wx:if="{{loading}}" class="loading">加载中...</view>
+    <view wx:elif="{{records.length === 0}}" class="empty">暂无记录</view>
+    <view wx:else class="record-list">
+      <view wx:for="{{records}}" wx:key="_id" class="record-item">
+        <view class="record-header">
+          <text class="location">{{item.location_name}}</text>
+          <text class="time">{{item.formatted_time}}</text>
+        </view>
+        <view class="record-body">
+          <text class="person">人员: {{item.person_name}}</text>
+          <text class="person-id">ID: {{item.person_id}}</text>
+        </view>
+        <view wx:if="{{item.image_url}}" class="record-image" bindtap="previewImage" data-url="{{item.image_url}}">
+          <image src="{{item.image_url}}" mode="aspectFill"></image>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{hasMore && !loading}}" class="load-more" bindtap="loadMore">加载更多</view>
+  </view>
+
+  <view wx:if="{{currentTab === 'statistics'}}" class="content">
+    <view wx:if="{{loading}}" class="loading">加载中...</view>
+    <view wx:elif="{{statistics.length === 0}}" class="empty">暂无统计数据</view>
+    <view wx:else class="statistics-list">
+      <view wx:for="{{statistics}}" wx:key="index" class="stat-item">
+        <view class="stat-header">
+          <text class="hour">{{item.hour}}:00 - {{item.hour}}:59</text>
+          <text class="location">{{item.location_name}}</text>
+        </view>
+        <view class="stat-body">
+          <text class="person">{{item.person_name}}</text>
+          <text class="count">出现 {{item.count}} 次</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
