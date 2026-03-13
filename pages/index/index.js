@@ -22,8 +22,8 @@ Page({
       });
     } catch (err) { console.error('加载数据失败:', err); }
   },
-  navigateToAlerts() { wx.navigateTo({url:'/pages/drone-alerts/drone-alerts'}); },
-  navigateToRecords() { wx.navigateTo({url:'/pages/detection-records/detection-records'}); },
+  navigateToAlerts() { wx.switchTab({url:'/pages/drone-alerts/drone-alerts'}); },
+  navigateToRecords() { wx.switchTab({url:'/pages/detection-records/detection-records'}); },
   navigateToLocations() { wx.navigateTo({url:'/pages/location-management/location-management'}); },
   navigateToAdmin() { wx.navigateTo({url:'/pages/admin/admin'}); }
 });

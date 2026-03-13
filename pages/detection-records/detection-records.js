@@ -1,6 +1,6 @@
 
 Page({
-  data:{records:[],locations:[],selectedLocationId:'',filterDrone:'',page:1,hasMore:true,loading:false},
+  data:{records:[],locations:[],selectedLocationId:'',selectedLocationName:'',filterDrone:'',page:1,hasMore:true,loading:false},
   onLoad(){this.loadLocations();this.loadRecords();},
   async loadLocations(){
     const db=wx.cloud.database();
@@ -15,11 +15,19 @@ Page({
     if(this.data.selectedLocationId)query.location_id=this.data.selectedLocationId;
     if(this.data.filterDrone!=='')query.is_drone=this.data.filterDrone==='true';
     const res=await db.collection('drone_detection').where(query).orderBy('detected_at','desc').get();
-    this.setData({records:res.data,hasMore:false,loading:false});
+    const formattedRecords = res.data.map(item => {
+      const date = new Date(item.detected_at);
+      return {
+        ...item,
+        formatted_time: `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')} ${String(date.getHours()).padStart(2,'0')}:${String(date.getMinutes()).padStart(2,'0')}`
+      };
+    });
+    this.setData({records:formattedRecords,hasMore:false,loading:false});
   },
   onLocationChange(e){
-    const loc=this.data.locations[e.detail.value];
-    this.setData({selectedLocationId:loc.location_id,page:1,records:[]});
+    const idx = e.detail.value;
+    const loc = this.data.locations[idx];
+    this.setData({selectedLocationId:loc.location_id,selectedLocationName:loc.location_name,page:1,records:[]});
     this.loadRecords();
   },
   switchFilter(e){
