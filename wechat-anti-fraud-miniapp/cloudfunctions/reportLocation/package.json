@@ -1,0 +1,11 @@
+{
+  "name": "reportLocation",
+  "version": "1.0.0",
+  "description": "接收树莓派上报的人员位置数据",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

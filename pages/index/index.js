@@ -24,6 +24,5 @@ Page({
   },
   navigateToAlerts() { wx.navigateTo({url:'/pages/drone-alerts/drone-alerts'}); },
   navigateToRecords() { wx.navigateTo({url:'/pages/detection-records/detection-records'}); },
-  navigateToLocations() { wx.navigateTo({url:'/pages/location-management/location-management'}); },
-  navigateToAdmin() { wx.navigateTo({url:'/pages/admin/admin'}); }
+  navigateToLocations() { wx.navigateTo({url:'/pages/location-management/location-management'}); }
 });

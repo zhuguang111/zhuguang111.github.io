@@ -1,0 +1,38 @@
+{
+  "miniprogramRoot": "./",
+  "cloudfunctionRoot": "./cloudfunctions/",
+  "appid": "wx6b4f24f7e154d8b5",
+  "projectname": "anti-fraud-miniapp",
+  "cloudbaseRoot": "./",
+  "libVersion": "2.19.4",
+  "compileType": "miniprogram",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useCompilerPlugins": [
+      "typescript"
+    ],
+    "condition": false,
+    "ignoreUploadUnusedFiles": true,
+    "ignoreDevUnusedFiles": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "首页",
+          "pathName": "pages/index/index",
+          "query": ""
+        }
+      ]
+    }
+  }
+}

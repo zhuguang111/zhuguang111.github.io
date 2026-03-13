@@ -56,11 +56,11 @@
         </view>
         <view class="form-item">
           <view class="form-label">频段最小值(MHz) *</view>
-          <input class="form-input" type="digit" value="{{form.frequency_min}}" bindinput="onInput" data-field="frequency_min" placeholder="如: 2400" />
+          <input class="form-input" type="number" value="{{form.frequency_min}}" bindinput="onInput" data-field="frequency_min" placeholder="如: 2400" />
         </view>
         <view class="form-item">
           <view class="form-label">频段最大值(MHz) *</view>
-          <input class="form-input" type="digit" value="{{form.frequency_max}}" bindinput="onInput" data-field="frequency_max" placeholder="如: 2500" />
+          <input class="form-input" type="number" value="{{form.frequency_max}}" bindinput="onInput" data-field="frequency_max" placeholder="如: 2500" />
         </view>
         <view class="form-item">
           <view class="form-label">警报阈值(dBm) *</view>
