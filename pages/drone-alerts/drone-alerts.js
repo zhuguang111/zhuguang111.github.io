@@ -18,9 +18,21 @@ Page({
     const db=wx.cloud.database();
     wx.showModal({title:'确认',content:'确认操作?',success:async(r)=>{
       if(r.confirm){
-        await db.collection('alerts').doc(id).update({data:{is_handled:action==='handle'}});
-        wx.showToast({title:'成功'});
-        this.loadAlerts();
+        try{
+          const isHandled = action === 'handle';
+          await db.collection('alerts').doc(id).update({
+            data: { 
+              is_handled: isHandled,
+              handled_at: isHandled ? db.serverDate() : null,
+              handled_action: isHandled ? 'handle' : 'ignore'
+            }
+          });
+          wx.showToast({title:'成功',icon:'success'});
+          this.loadAlerts();
+        }catch(err){
+          console.error('处理警报失败:',err);
+          wx.showToast({title:'处理失败',icon:'none'});
+        }
       }
     }});
   }

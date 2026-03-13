@@ -64,7 +64,7 @@
         </view>
         <view class="form-item">
           <view class="form-label">警报阈值(dBm) *</view>
-          <input class="form-input" type="digit" value="{{form.threshold}}" bindinput="onInput" data-field="threshold" placeholder="如: -70" />
+          <input class="form-input" type="number" value="{{form.threshold}}" bindinput="onInput" data-field="threshold" placeholder="如: -70" />
         </view>
       </view>
       <view class="modal-actions">

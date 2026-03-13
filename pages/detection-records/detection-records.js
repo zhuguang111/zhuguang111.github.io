@@ -25,5 +25,15 @@ Page({
   switchFilter(e){
     this.setData({filterDrone:e.currentTarget.dataset.drone,page:1,records:[]});
     this.loadRecords();
+  },
+  async loadMore(){
+    if(!this.data.hasMore||this.data.loading)return;
+    this.setData({page:this.data.page+1,loading:true});
+    const db=wx.cloud.database();
+    let query={};
+    if(this.data.selectedLocationId)query.location_id=this.data.selectedLocationId;
+    if(this.data.filterDrone!=='')query.is_drone=this.data.filterDrone==='true';
+    const res=await db.collection('drone_detection').where(query).orderBy('detected_at','desc').skip((this.data.page-1)*20).limit(20).get();
+    this.setData({records:[...this.data.records,...res.data],hasMore:res.data.length===20,loading:false});
   }
 });
