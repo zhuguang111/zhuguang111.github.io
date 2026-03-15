@@ -1,0 +1,11 @@
+{
+  "name": "handleAlert",
+  "version": "1.0.0",
+  "description": "处理警报",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}
