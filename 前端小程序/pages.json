@@ -1,0 +1,63 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "电信诈骗举报"
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/agreement/agreement",
+			"style": {
+				"navigationBarTitleText": "用户协议"
+			}
+		},
+		{
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/report/report",
+			"style": {
+				"navigationBarTitleText": "违法犯罪线索举报"
+			}
+		},
+		{
+			"path": "pages/my-report/my-report",
+			"style": {
+				"navigationBarTitleText": "我的举报"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "电信诈骗举报",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#999",
+		"selectedColor": "#e53935",
+		"borderStyle": "black",
+		"backgroundColor": "#fff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "我的"
+			}
+		]
+	},
+	"uniIdRouter": {}
+}

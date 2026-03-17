@@ -56,6 +56,7 @@
         </view>
         <view class="form-item">
           <view class="form-label">频段最小值(MHz) *</view>
+<<<<<<< HEAD
           <input class="form-input" type="digit" value="{{form.frequency_min}}" bindinput="onInput" data-field="frequency_min" placeholder="如: 2400" />
         </view>
         <view class="form-item">
@@ -65,6 +66,17 @@
         <view class="form-item">
           <view class="form-label">警报阈值(dBm) *</view>
           <input class="form-input" type="digit" value="{{form.threshold}}" bindinput="onInput" data-field="threshold" placeholder="如: -70" />
+=======
+          <input class="form-input" type="number" value="{{form.frequency_min}}" bindinput="onInput" data-field="frequency_min" placeholder="如: 2400" />
+        </view>
+        <view class="form-item">
+          <view class="form-label">频段最大值(MHz) *</view>
+          <input class="form-input" type="number" value="{{form.frequency_max}}" bindinput="onInput" data-field="frequency_max" placeholder="如: 2500" />
+        </view>
+        <view class="form-item">
+          <view class="form-label">警报阈值(dBm) *</view>
+          <input class="form-input" type="number" value="{{form.threshold}}" bindinput="onInput" data-field="threshold" placeholder="如: -70" />
+>>>>>>> eb343a31199b64d32fd989f9d9da1d4b8473e085
         </view>
       </view>
       <view class="modal-actions">

@@ -1,0 +1,11 @@
+{
+  "name": "getHourlyStatistics",
+  "version": "1.0.0",
+  "description": "按小时统计人员出现频率",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

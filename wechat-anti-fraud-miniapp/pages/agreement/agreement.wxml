@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="header">
+    <text class="title">用户协议与隐私政策</text>
+  </view>
+
+  <scroll-view class="content" scroll-y>
+    <text class="text">{{content}}</text>
+  </scroll-view>
+</view>

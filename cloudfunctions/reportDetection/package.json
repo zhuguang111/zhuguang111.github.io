@@ -1,9 +1,20 @@
 {
   "name": "reportDetection",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "",
   "main": "index.js",
   "dependencies": {
     "wx-server-sdk": "~2.6.3"
   }
 }
+=======
+  "description": "接收树莓派上报的检测数据",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}
+>>>>>>> eb343a31199b64d32fd989f9d9da1d4b8473e085
