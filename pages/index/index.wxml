@@ -1,2 +1,52 @@
 <!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<view class="container">
+  <view class="header">
+    <text class="title">无人检测</text>
+    <text class="subtitle">SDR无线电信号监测</text>
+  </view>
+
+  <view class="stats-container">
+    <view class="stat-item">
+      <text class="stat-number">{{stats.totalLocations}}</text>
+      <text class="stat-label">监测点</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-number">{{stats.activeAlerts}}</text>
+      <text class="stat-label">待处理警报</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-number">{{stats.todayDetections}}</text>
+      <text class="stat-label">今日检测</text>
+    </view>
+  </view>
+
+  <view class="quick-actions">
+    <view class="action-item" bindtap="navigateToLocations">
+      <view class="action-icon location-icon"></view>
+      <view class="action-text">
+        <text class="action-title">监测点管理</text>
+        <text class="action-desc">管理SDR监测设备</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="recent-alerts">
+    <view class="section-header">
+      <text class="section-title">最近警报</text>
+      <text class="section-more" bindtap="navigateToAlerts">查看全部</text>
+    </view>
+    <view wx:if="{{recentAlerts.length === 0}}" class="empty-alerts">
+      <text>暂无警报</text>
+    </view>
+    <view wx:else class="alert-list">
+      <view wx:for="{{recentAlerts}}" wx:key="_id" class="alert-item">
+        <text class="alert-location">{{item.location_name}}</text>
+        <text class="alert-time">{{item.formatted_date}} {{item.formatted_time}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <text class="footer-text">© 2026 无人检测</text>
+  </view>
+</view>

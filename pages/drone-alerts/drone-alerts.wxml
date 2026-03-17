@@ -1,13 +1,10 @@
 <view class="container">
   <view class="header">
-    <view class="unread-badge" wx:if="{{unreadCount > 0}}">
-      <text>{{unreadCount}} 条未读警报</text>
-    </view>
   </view>
 
-  <view class="tabs">
+  <view class="filter-tabs">
     <view class="tab {{filterType === 'all' ? 'active' : ''}}" bindtap="switchFilter" data-type="all">全部</view>
-    <view class="tab {{filterType === 'unread' ? 'active' : ''}}" bindtap="switchFilter" data-type="unread">未读</view>
+    <view class="tab {{filterType === 'handled' ? 'active' : ''}}" bindtap="switchFilter" data-type="handled">已处理</view>
     <view class="tab {{filterType === 'pending' ? 'active' : ''}}" bindtap="switchFilter" data-type="pending">待处理</view>
   </view>
 
@@ -27,7 +24,7 @@
       <view class="alert-body">
         <view class="alert-info">
           <text class="label">频率:</text>
-          <text class="value">{{item.frequency}} MHz</text>
+          <text class="value">{{item.frequency}}</text>
         </view>
         <view class="alert-info">
           <text class="label">信号强度:</text>
@@ -35,7 +32,7 @@
         </view>
         <view class="alert-info">
           <text class="label">检测时间:</text>
-          <text class="value">{{item.formatted_time}}</text>
+          <text class="value">{{item.formatted_date}} {{item.formatted_time}}</text>
         </view>
       </view>
 

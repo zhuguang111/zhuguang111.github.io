@@ -2,7 +2,21 @@
 
 Page({
   data:{locations:[],loading:false,showModal:false,isEdit:false,form:{location_id:'',location_name:'',location_desc:'',frequency_min:'',frequency_max:'',threshold:''}},
-  onShow(){this.loadLocations();},
+  onShow(){
+    const adminInfo = wx.getStorageSync('adminInfo');
+    if (!adminInfo) {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        showCancel: false,
+        success: () => {
+          wx.navigateTo({ url: '/pages/admin/admin' });
+        }
+      });
+      return;
+    }
+    this.loadLocations();
+  },
   async loadLocations(){
     this.setData({loading:true});
     const db=wx.cloud.database();

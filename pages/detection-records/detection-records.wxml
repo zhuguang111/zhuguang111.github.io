@@ -7,7 +7,7 @@
     </picker>
     <picker mode="date" value="{{selectedDate}}" start="2025-01-01" end="{{today}}" bindchange="onDateChange">
       <view class="filter-item">
-        日期: {{selectedDate || '全部'}}
+        日期: {{selectedDate || '全部'}} <text class="arrow">▼</text>
       </view>
     </picker>
   </view>
@@ -30,7 +30,7 @@
       <view class="record-body">
         <view class="info">
           <text class="label">频率:</text>
-          <text class="value">{{item.frequency}} MHz</text>
+          <text class="value">{{item.frequency}}</text>
         </view>
         <view class="info">
           <text class="label">信号强度:</text>
@@ -38,7 +38,7 @@
         </view>
         <view class="info">
           <text class="label">时间:</text>
-          <text class="value">{{item.formatted_time}}</text>
+          <text class="value">{{item.formatted_date}} {{item.formatted_time}}</text>
         </view>
       </view>
     </view>

@@ -10,7 +10,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ff4d4f",
-    "navigationBarTitleText": "无人机检测系统",
+    "navigationBarTitleText": "无人检测",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
